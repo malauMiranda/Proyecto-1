@@ -1,0 +1,94 @@
+@use './abstracts/variables';
+@use './abstracts/mixins';
+
+.title-login {
+    @include mixins.set-font(variables.$ff, variables.$fw-Regular, variables.$fs-xmed, variables.$clr-red);
+    margin-bottom: 4.5rem;
+}
+
+.login-text{
+    @include mixins.set-font(variables.$ff, variables.$fw-Regular, variables.$fs-med, variables.$clr-text);
+}
+
+.login-link{
+    @include mixins.set-font(variables.$ff, variables.$fw-Regular, variables.$fs-sm, variables.$clr-blue);
+}
+
+.login-btn{
+    @include mixins.set-btn(variables.$clr-red, variables.$clr-red,variables.$clr-white,variables.$fs-sm );
+}
+
+
+/*Caja del input*/
+.form-space {
+    
+    background: transparent;
+    border-radius: 0px;
+    border: none;
+    border-bottom: 0.063rem solid variables.$clr-black;
+    font-size: variables.$fs-sm ;
+    margin-top: 3.75rem;
+    height: 2rem;
+    color: variables.$clr-black;
+    font-style: italic;
+    top: -1.6em;
+    transition: ease .3s;
+    width: 100%;
+}
+
+/*Caja del input al hacer click*/
+.form-space:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+    width: 100%;
+}
+
+/*Posicion de cada cuadro*/
+.input-space {
+    position: relative;
+    top: -30%;
+}
+
+/*Animacion de movimiento*/
+.input-space~span {
+    transition: all .7s ease;
+    position: relative;
+    top: -60%;
+}
+
+/*Posicion de Texto*/
+.input-space:focus~span {
+    top: -100px;
+}
+
+/*Animacion del Texto*/
+.input-space:before {
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 3;
+}
+
+/*Quitar evento del Texto*/
+.noclick {
+    pointer-events: none;
+}
+
+
+/*Verificar si tiene texto*/
+.static-text:valid+.msg {
+    top: -100px !important;
+}
+
+.img-rounded {
+    border-radius: 0 4% 4% 0;
+}
+
+
+.footer-bg{
+    background-color:variables.$clr-red;
+}
+
+
+
+
