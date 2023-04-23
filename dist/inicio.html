@@ -13,9 +13,23 @@
     <link rel="stylesheet" href="./css/main.css">
     <title>Iniciar Sesión</title>
 </head>
+
+
+
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark red-space pt-3 mb-3">
+    <div class="container-fluid nav-bar">
+      <!--Logo-->
+      <a class="navbar-brand pe-lg-5 mb-3">
+        <img src="images/logo.png" alt="" /></a>
+    </div>
+  </nav>
+
+
+
 <body class="d-flex flex-column min-vh-100">
-
-
 <!--Cuerpo-->
 <section class="container-fluid my-lg-5 mx-auto my-auto">
     <div class="d-flex justify-content-center align-items-center mx-5 row ">
@@ -23,7 +37,7 @@
 
             <!--Campos de Registro-->
             <div class="col-lg-6 align-self-center">
-                <h2 class="title-login d-flex justify-content-lg-start justify-content-center">Iniciar Sesión</h2>
+                <h2 class="title-login d-flex justify-content-lg-start justify-content-center ">Iniciar Sesión</h2>
                 <form action="" method="post"
                     class="row text d-flex justify-content-lg-start justify-content-center needs-validation" novalidate>
                     <div class="w-75">
@@ -44,18 +58,19 @@
                         </p>
                     </div>
                     <div class="d-flex justify-content-lg-start justify-content-center">
-                        <a class="login-link" href="#">Recuperar Cuenta</a>
+                        <a class="login-link" href="recuperacion.html">Recuperar Cuenta</a>
                     </div>
                     <div class="d-flex justify-content-lg-start justify-content-center">
-                        <button class="btn login-btn btn-block fw-bold w-75 my-5 " name="login"
+                        <!--<button class="btn login-btn btn-block fw-bold w-75 my-5 " name="login"
                             type="submit">
                             Iniciar Sesión
-                        </button>
+                        </button>-->
+                        <a class="btn login-btn fw-bold w-75 my-5" href="inicio.html">Iniciar Sesión</a>
                     </div>
                     <div class="d-flex justify-content-lg-start justify-content-center">
                         <div >
                             <p class="d-flex justify-content-lg-start justify-content-center login-text">¿No tienes cuenta? </p>
-                            <a class="d-flex justify-content-lg-start justify-content-center login-link" href="#">Crear Cuenta</a>
+                            <a class="d-flex justify-content-lg-start justify-content-center login-link" href="registro.html">Crear Cuenta</a>
                         </div>
                     </div>
                 </form>
@@ -70,8 +85,8 @@
 
 </body>
 
-    <footer class="footer-bg">
-        <p>
+    <footer class="red-space">
+        <p class="footer-text text-center m-lg-4">
             © 2023. Todos los derechos reservados
         </p>
     </footer>

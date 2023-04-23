@@ -13386,18 +13386,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.title-login {
-  font-family: "Raleway", sans-serif;
-  font-weight: 400;
-  font-size: 3rem;
-  color: #f23838;
-  margin-bottom: 4.5rem;
-}
-
 .login-text {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.125rem;
   color: #575757;
 }
 
@@ -13417,6 +13409,7 @@ textarea.form-control-lg {
   border: #f23838;
   background: #f23838;
   color: white;
+  padding: 0.5rem;
 }
 
 /*Caja del input*/
@@ -13466,7 +13459,7 @@ textarea.form-control-lg {
 
 /*Animacion del Texto*/
 .input-space:before {
-  background: rgba(0, 0, 0, 0.1);
+  background: #000000;
   z-index: 3;
 }
 
@@ -13484,6 +13477,129 @@ textarea.form-control-lg {
   border-radius: 0 4% 4% 0;
 }
 
-.footer-bg {
+.red-space {
   background-color: #f23838;
+}
+
+.title-login {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  color: #f23838;
+  margin-bottom: 4.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.sub-titles {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #212529;
+}
+
+.footer-text {
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 1.125rem;
+  color: white;
+  text-align: center;
+  margin: 4rem;
+}
+
+.navbar-text {
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 1.125rem;
+  color: white;
+}
+
+.title-admin {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 3.6rem;
+  color: white;
+  text-align: center;
+}
+
+.top-bg {
+  width: 100%;
+  background: url(../images/comida.jpg) no-repeat;
+  background-size: cover;
+  padding: 10rem;
+  margin-top: 1rem;
+}
+
+.text-rows {
+  font-size: 1rem;
+}
+
+.table-listas {
+  /*Tabla*/
+  border: 0.063rem solid #f78d8d;
+  border-collapse: collapse;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.td-listas {
+  /*columnas y filas tabla*/
+  border: 0.063rem solid #f78d8d;
+  border-collapse: collapse;
+}
+
+.text-listas {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  color: #575757;
+}
+
+.titles-listas {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: white;
+}
+
+@media only screen and (max-width: 800px) {
+  #no-more-tables tbody,
+#no-more-tables tr,
+#no-more-tables td {
+    display: block;
+  }
+  #no-more-tables thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  .red-tr {
+    background-color: #f78d8d;
+    color: white;
+  }
+  #no-more-tables td {
+    position: relative;
+    padding-left: 50%;
+    border: none;
+    border-bottom: 0.063rem solid white;
+  }
+  #no-more-tables td:before {
+    content: attr(data-title);
+    position: absolute;
+    left: 0.375;
+    font-weight: 700;
+  }
+  #no-more-tables tr {
+    border-bottom: 0.063rem solid 1000;
+  }
+}
+@media only screen and (max-width: 500px) {
+  td {
+    font-size: 3vw;
+  }
 }

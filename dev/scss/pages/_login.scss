@@ -1,21 +1,19 @@
 @use './abstracts/variables';
 @use './abstracts/mixins';
 
-.title-login {
-    @include mixins.set-font(variables.$ff, variables.$fw-Regular, variables.$fs-xmed, variables.$clr-red);
-    margin-bottom: 4.5rem;
-}
+
 
 .login-text{
-    @include mixins.set-font(variables.$ff, variables.$fw-Regular, variables.$fs-med, variables.$clr-text);
+    @include mixins.set-font(variables.$ff, variables.$fw-Regular, variables.$fs-reg, variables.$clr-text);
 }
 
 .login-link{
-    @include mixins.set-font(variables.$ff, variables.$fw-Regular, variables.$fs-sm, variables.$clr-blue);
+    @include mixins.set-font(variables.$ff, variables.$fw-Regular, variables.$fs-reg, variables.$clr-blue);
 }
 
 .login-btn{
-    @include mixins.set-btn(variables.$clr-red, variables.$clr-red,variables.$clr-white,variables.$fs-sm );
+    @include mixins.set-btn(variables.$clr-red, variables.$clr-red,variables.$clr-white,variables.$fs-reg );
+    padding: 0.5rem;
 }
 
 
@@ -26,7 +24,7 @@
     border-radius: 0px;
     border: none;
     border-bottom: 0.063rem solid variables.$clr-black;
-    font-size: variables.$fs-sm ;
+    font-size: variables.$fs-reg ;
     margin-top: 3.75rem;
     height: 2rem;
     color: variables.$clr-black;
@@ -65,7 +63,7 @@
 
 /*Animacion del Texto*/
 .input-space:before {
-    background: rgba(0, 0, 0, 0.1);
+    background: variables.$clr-black;
     z-index: 3;
 }
 
@@ -84,10 +82,12 @@
     border-radius: 0 4% 4% 0;
 }
 
+.red-space{
+    @include mixins.red-space();
 
-.footer-bg{
-    background-color:variables.$clr-red;
 }
+
+
 
 
 

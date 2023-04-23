@@ -1,0 +1,8 @@
+@use './abstracts/variables';
+@use './abstracts/mixins';
+
+.footer-text{
+    @include mixins.set-font(variables.$ff, variables.$fw-Light, variables.$fs-reg, variables.$clr-white);
+    text-align: center;
+    margin: 4rem;
+}
