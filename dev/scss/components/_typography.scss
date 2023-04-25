@@ -13,3 +13,8 @@
 .sub-titles {
     @include mixins.set-font(variables.$ff, variables.$fw-SemiBold, variables.$fs-med, variables.$clr-gray);
 }
+
+
+.regular-text {
+    @include mixins.set-font(variables.$ff, variables.$fw-Regular, variables.$fs-reg, variables.$clr-text);
+}

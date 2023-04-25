@@ -13386,6 +13386,42 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+@media only screen and (max-width: 800px) {
+  #no-more-tables tbody,
+#no-more-tables tr,
+#no-more-tables td {
+    display: block;
+  }
+  #no-more-tables thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  .red-tr {
+    background-color: #f78d8d;
+    color: white;
+  }
+  #no-more-tables td {
+    position: relative;
+    padding-left: 50%;
+    border: none;
+    border-bottom: 0.063rem solid white;
+  }
+  #no-more-tables td:before {
+    content: attr(data-title);
+    position: absolute;
+    left: 0.375;
+    font-weight: 700;
+  }
+  #no-more-tables tr {
+    border-bottom: 0.063rem solid 1000;
+  }
+}
+@media only screen and (max-width: 500px) {
+  td {
+    font-size: 3vw;
+  }
+}
 .login-text {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
@@ -13477,10 +13513,6 @@ textarea.form-control-lg {
   border-radius: 0 4% 4% 0;
 }
 
-.red-space {
-  background-color: #f23838;
-}
-
 .title-login {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
@@ -13502,6 +13534,13 @@ textarea.form-control-lg {
   color: #212529;
 }
 
+.regular-text {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  color: #575757;
+}
+
 .footer-text {
   font-family: "Raleway", sans-serif;
   font-weight: 300;
@@ -13509,6 +13548,10 @@ textarea.form-control-lg {
   color: white;
   text-align: center;
   margin: 4rem;
+}
+
+.red-space {
+  background-color: #f23838;
 }
 
 .navbar-text {
@@ -13567,39 +13610,30 @@ textarea.form-control-lg {
   color: white;
 }
 
-@media only screen and (max-width: 800px) {
-  #no-more-tables tbody,
-#no-more-tables tr,
-#no-more-tables td {
-    display: block;
-  }
-  #no-more-tables thead tr {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-  .red-tr {
-    background-color: #f78d8d;
-    color: white;
-  }
-  #no-more-tables td {
-    position: relative;
-    padding-left: 50%;
-    border: none;
-    border-bottom: 0.063rem solid white;
-  }
-  #no-more-tables td:before {
-    content: attr(data-title);
-    position: absolute;
-    left: 0.375;
-    font-weight: 700;
-  }
-  #no-more-tables tr {
-    border-bottom: 0.063rem solid 1000;
-  }
+.btn-image {
+  background-color: #f23838;
+  border-radius: 0.9rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  margin-bottom: 4rem;
 }
-@media only screen and (max-width: 500px) {
-  td {
-    font-size: 3vw;
-  }
+
+.form-recipe {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+
+.text-area-add {
+  text-align: left;
+  color: #9da56d;
+}
+
+.text-h3 {
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 1rem;
 }

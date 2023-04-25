@@ -1,0 +1,32 @@
+@use './abstracts/variables';
+@use './abstracts/mixins';
+
+
+.btn-image {
+    background-color: variables.$clr-red;
+    border-radius: 0.9rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin-bottom: 4rem;
+}
+
+.form-recipe {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    color: variables.$clr-black;
+}
+
+.text-area-add {
+    text-align: left;
+    color: variables.$clr-green;
+}
+
+.text-h3 {
+    text-align: center;
+    font-weight: variables.$fw-Regular;
+    margin-bottom: 1rem;
+}
+

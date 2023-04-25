@@ -1,11 +1,13 @@
 @use'./vendor/bootstrap/bootstrap.scss';
 @use './abstracts/variables';
 @use './abstracts/mixins';
+@use './base/mediaQueries';
 @use './pages/login';
 @use './components/typography';
 @use './layout/footer';
 @use './pages/admin';
 @use './pages/listasAdmin';
+@use './pages/agregarReceta';
 
 
 

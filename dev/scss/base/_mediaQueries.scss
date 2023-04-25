@@ -1,0 +1,48 @@
+@use './abstracts/variables';
+@use './abstracts/mixins';
+
+@media only screen and (max-width:800px) {
+
+    #no-more-tables tbody,
+    #no-more-tables tr,
+    #no-more-tables td {
+        display: block;
+    }
+
+    #no-more-tables thead tr {
+
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .red-tr {
+        background-color: variables.$clr-pink;
+        color: variables.$clr-white;
+    }
+
+    #no-more-tables td {
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 0.063rem solid variables.$clr-white;
+    }
+
+    #no-more-tables td:before {
+        content: attr(data-title);
+        position: absolute;
+        left: 0.375;
+        font-weight: variables.$fw-bold;
+    }
+
+    #no-more-tables tr {
+        border-bottom: 0.063rem solid variables.$fw-black;
+    }
+}
+
+@media only screen and (max-width:500px) {
+
+    td {
+        font-size: 3vw;
+    }
+}
