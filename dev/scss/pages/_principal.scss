@@ -24,66 +24,7 @@
     @include mixins.set-font(variables.$ff, variables.$fw-bold, variables.$fs-lg, variables.$clr-white);
 }
 
-.xs-sub-title {
-    /*Subtítulo de las tarjetas*/
-    font-family: 'Raleway', sans-serif;
-    font-weight: 800;
-    font-size: 1rem;
-    align-self: center;
-    margin-top: 1rem;
-}
-
-.xs-sub-title-white {
-    /*Subtítulo de las tarjetas pero blanco*/
-    font-family: 'Raleway', sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-    align-self: center;
-    color: var(--clr-white);
-}
-
-.small-text {
-    /*texto para las tarjetas*/
-    font-family: 'Raleway', sans-serif;
-    font-weight: 100;
-    font-size: 0.9rem;
-    color: var(--clr-white);
-}
-
-.small-text-like {
-    /*Letra para el número de likes de ua receta en la tarjeta*/
-    font-family: 'Raleway', sans-serif;
-    font-weight: 100;
-    font-size: 0.9rem;
-    color: var(--clr-white);
-}
-
-.big-text-like {
-    /*Letra para el número de likes de ua receta en la receta, es más grande*/
-    font-family: 'Raleway', sans-serif;
-    font-weight: 300;
-    font-size: 1.2rem;
-    color: var(--clr-text);
-    padding-left: 9rem;
-}
-
-
-
-.cards-wrapper {
-    /*Filas de tarjetas*/
-    display: flex;
-}
-
-.title-receta {
-    /*Título de la recetas*/
-    font-family: 'Raleway', sans-serif;
-    font-weight: 1000;
-    font-size: 3rem;
-    color: var(--clr-black);
-}
-
-.card {
-    /*Tatjeta*/
-    margin: 1em;
-    width: calc(100%/2.2);
+.subtitle{
+    @include mixins.set-font(variables.$ff, variables.$fw-SemiBold, variables.$fs-med, variables.$clr-gray);
+    text-align: center;
 }

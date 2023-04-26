@@ -13697,42 +13697,72 @@ textarea.form-control-lg {
   color: white;
 }
 
-.xs-sub-title {
-  /*Subtítulo de las tarjetas*/
+.subtitle {
   font-family: "Raleway", sans-serif;
-  font-weight: 800;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #212529;
+  text-align: center;
+}
+
+.card-title {
+  /*título de las tarjetas*/
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
   font-size: 1rem;
+  color: #212529;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   margin-top: 1rem;
 }
 
-.xs-sub-title-white {
-  /*Subtítulo de las tarjetas pero blanco*/
+.card-body-text {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 1rem;
+  color: white;
+}
+
+.card-like {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: white;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  color: var(--clr-white);
 }
 
-.small-text {
-  /*texto para las tarjetas*/
+.btn-agregar {
   font-family: "Raleway", sans-serif;
-  font-weight: 100;
-  font-size: 0.9rem;
-  color: var(--clr-white);
+  font-size: 1.125rem;
+  place-items: center;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border: #f23838;
+  background: #f23838;
+  color: white;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  margin-left: 5rem;
 }
 
-.small-text-like {
-  /*Letra para el número de likes de ua receta en la tarjeta*/
-  font-family: "Raleway", sans-serif;
-  font-weight: 100;
-  font-size: 0.9rem;
-  color: var(--clr-white);
+.cards-wrapper {
+  /*Filas de tarjetas*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.cards {
+  /*Tatjeta*/
+  margin: 1em;
+  width: 33.3333333333%;
+}
+
+.image-wrapper {
+  height: 22vw;
 }
 
 .big-text-like {
@@ -13744,23 +13774,10 @@ textarea.form-control-lg {
   padding-left: 9rem;
 }
 
-.cards-wrapper {
-  /*Filas de tarjetas*/
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 .title-receta {
   /*Título de la recetas*/
   font-family: "Raleway", sans-serif;
   font-weight: 1000;
   font-size: 3rem;
   color: var(--clr-black);
-}
-
-.card {
-  /*Tatjeta*/
-  margin: 1em;
-  width: 45.4545454545%;
 }

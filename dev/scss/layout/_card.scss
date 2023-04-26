@@ -1,3 +1,69 @@
 @use './abstracts/variables';
 @use './abstracts/mixins';
 
+.card-title {
+    /*título de las tarjetas*/
+    @include mixins.set-font(variables.$ff, variables.$fw-SemiBold, variables.$fs-xsm, variables.$clr-gray);
+    align-self: center;
+    margin-top: 1rem;
+}
+
+.card-body-text{
+
+    @include mixins.set-font(variables.$ff, variables.$fw-Regular, variables.$fs-xsm, variables.$clr-white);
+    
+}
+
+.card-like{
+
+    @include mixins.set-font(variables.$ff, variables.$fw-Regular, variables.$fs-xxsm, variables.$clr-white);
+    align-self: center;
+}
+
+.btn-agregar{
+    @include mixins.set-btn(variables.$clr-red, variables.$clr-red,variables.$clr-white,variables.$fs-reg );
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    margin-left: 5rem;
+
+}
+
+.cards-wrapper {
+    /*Filas de tarjetas*/
+    display: flex;
+}
+
+
+.cards {
+    /*Tatjeta*/
+    margin: 1em;
+    width: calc(100%/3);
+}
+
+.image-wrapper{
+    height: 22vw;
+
+}
+
+
+
+
+
+
+
+.big-text-like {
+    /*Letra para el número de likes de ua receta en la receta, es más grande*/
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: var(--clr-text);
+    padding-left: 9rem;
+}
+
+.title-receta {
+    /*Título de la recetas*/
+    font-family: 'Raleway', sans-serif;
+    font-weight: 1000;
+    font-size: 3rem;
+    color: var(--clr-black);
+}

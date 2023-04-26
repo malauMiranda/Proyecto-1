@@ -14,7 +14,7 @@
     <title>Principal</title>
 </head>
 
-
+<body>
     
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light red-space">
@@ -33,13 +33,13 @@
       <div class="collapse navbar-collapse align-menu align-nav-menu" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item ps-lg-4 pe-lg-5 nav-link">
-            <a class="nav-link active text-white" aria-current="page" href="Inicio.php">Inicio</a>
+            <a class="nav-link active text-white" aria-current="page" href="principal.html">Inicio</a>
           </li>
           <li class="nav-item ps-lg-4 pe-lg-5 nav-link">
-            <a class="nav-link text-white" href="Inicio.php#carrusel">Top recetas</a>
+            <a class="nav-link text-white" href="#carrusel">Top recetas</a>
           </li>
           <li class="nav-item ps-lg-4 pe-lg-5 nav-link">
-            <a class="nav-link text-white" href="MisRecetas.php"> Mis recetas</a>
+            <a class="nav-link text-white" href="#"> Mis recetas</a>
           </li>
 
           <li class="nav-item ps-lg-4 pe-lg-5 nav-link">
@@ -51,13 +51,13 @@
           <li class="nav-item ps-lg-4 pe-lg-5 nav-link">
             <a class="navbar-brand nav-link text-white">
               <img src="images/Regis.png" alt="" width="38" height="38" class="d-inline-block">
-              <span class="nav-bar text-white" href="#carrusel">Usuario:Admin</span>
+              <span class="nav-bar text-white" href="#">Usuario:Admin</span>
               </a>
           </li>
 
           <li class="nav-item ps-lg-4 pe-lg-5 nav-link">
-            <a class="navbar-brand nav-link text-white" href="Sesion.php">
-              <span class="nav-bar text-white" href="logout.php">Logout</span>
+            <a class="navbar-brand nav-link text-white" href="inicio.html">
+              <span class="nav-bar text-white" href="#">Logout</span>
             </a>
           </li>
           
@@ -77,7 +77,7 @@
   </nav>
 
 
-<body>
+
     <!--TITULO-->
     <div class="image-bg">
         <section class="container-fluid">
@@ -87,70 +87,261 @@
 
 
 
+  <!--CARRUSEL-->
+  <section id="carrusel" class="container-fluid">
+    <h1 class="subtitle">Top 10 recetas más votadas</h1>
+    <div id="carouselExampleControls" class="carousel slide carousel-dark" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
 
-     <!--CARRUSEL-->
-     <section id="carrusel" class="container-fluid">
-        <h1 class="sub-title text-center">Top 10 recetas más votadas</h1>
-        <div id="carouselExampleControls" class="carousel slide carousel-dark" data-bs-ride="carousel">
-            <div class="carousel-inner">
+          <div class="cards-wrapper">
+            <div class="card cards">
+              <h1 class="card-title">Panqueques</h1>
+              <a href="receta.html"><img class="card-img-top" src="images/pan.png" alt="Panqueques"></a>
+              <div class="card-body red-space">
+                <p class="card-text card-body-text text-center">Detalles</p>
+                <p class="card-text card-body-text text-center">
+                  Dificultad: Fácil <br>
+                  Duración: 45 min <br>
+                  Categoría: Desayuno <br>
+                  Ocasión: Verano <br>
+                </p>
+                <img class="img-fluid line" src="images/linea.png" alt="division">
+                <ul class="text-center">
+                  <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
+                  <a class="card-like text-center mt-5" href="#"><img class="img-fluid heart" src="images/corazon.png" alt=""> 225</a>
+                </ul>
+              </div>
+            </div>
 
-            
-      
-        <div class="row">
-             
-                
-                    <div class="carousel-item active">
-               
-                    <div class="carousel-item">
-              
-                
-                    <div class=" overflow-hidden text-center d-flex justify-content-center align-items-center">
-                        <div class="card" style="width:23rem;">
-                            <form action="" method="post">
-                                <h1 class="xs-sub-title">Arroz</h1>
-                                <a href="#"><img width="370" height="250" src="images/arroz.jpg" class="card-img-top"
-                                        alt="foto"></a>
-                                <div class="card-body red-space">
-                                    <p class="card-text xs-sub-title-white text-center">Detalles</p>
-                                    <p class="card-text xs-sub-title-white text-center">
-                                        Dificultad:  <br>
-                                        Duración: <br>
-                                        Categoría:  <br>
-                                        Ocasión:  <br>
-                                    </p>
-                                    <img class="img-fluid line" src="images/linea.png" alt="division">
-                                    <ul style="padding-left: 0px;">
-                                        <input type="hidden" name="id" value=""></input>
-                                        <input type="submit" class="btn btn-outline-light" name="guardar_misrecetas" value="Agregar"> 
-                                      
-                                            <p style="padding-left: 0px; margin-top: 0.5rem" class="small-text-like heart text-center d-flex justify-content-center align-items-center" href="#"><img class="img-fluid heart" src="img/corazon.png" alt=""><?php echo $result[$i]['like'];?></p>
-                                      
-                                            <p style="padding-left: 0px; margin-top: 0.5rem" class="small-text-like heart text-center d-flex justify-content-center align-items-center" href="#"><img class="img-fluid heart" src="img/corazon_like.png" alt=""><?php echo $result[$i]['like'];?></p>
-                                        
-                                        </input>
-                                    </ul>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-      
+            <div class="card cards">
+              <h1 class="card-title">Pollo en salsa blanca</h1>
+              <a href="receta.html"><img class="card-img-top" src="images/pollo.png" alt="Pollo"></a>
+              <div class="card-body red-space">
+                <p class="card-text card-body-text text-center">Detalles</p>
+                <p class="card-text card-body-text text-center">
+                  Dificultad: Intermedio <br>
+                  Duración: 1 hora <br>
+                  Categoría: Almuerzo <br>
+                  Ocasión: Día del padre <br>
+                </p>
+                <img class="img-fluid line" src="images/linea.png" alt="division">
+                <ul class="text-center">
+                  <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
+                  <a class="card-like text-center mt-5" href="#"><img class="img-fluid heart" src="images/corazon.png" alt=""> 225</a>
+                </ul>
+
+              </div>
+            </div>
+
+            <div class="card cards">
+              <h1 class="card-title">Malteada</h1>
+              <a href="receta.html"><img class="card-img-top" src="images/Ba.png" alt="Batido"></a>
+              <div class="card-body red-space">
+                <p class="card-text card-body-text text-center">Detalles</p>
+                <p class="card-text card-body-text text-center">
+                  Dificultad: Fácil <br>
+                  Duración: 15 min <br>
+                  Categoría: Bebida <br>
+                  Ocasión: Semana Santa <br>
+                </p>
+                <img class="img-fluid line" src="images/linea.png" alt="division">
+                <ul class="text-center">
+                  <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
+                  <a class="card-like text-center mt-5" href="#"><img class="img-fluid heart" src="images/corazon.png" alt=""> 225</a>
+                </ul>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+
+        <div class="carousel-item">
+          <div class="cards-wrapper">
+
+            <div class="card cards">
+              <h1 class="card-title">Arrollados de queso y espinaca</h1>
+              <a href="receta.html"><img class="card-img-top" src="images/rollos.png" alt="Arrollado"></a>
+              <div class="card-body red-space">
+                <p class="card-text card-body-text text-center">Detalles</p>
+                <p class="card-text card-body-text text-center">
+                  Dificultad: Fácil <br>
+                  Duración: 1 h 30 min <br>
+                  Categoría: Entrada <br>
+                  Ocasión: Navidad <br>
+                </p>
+                <img class="img-fluid line" src="images/linea.png" alt="division">
+                <ul class="text-center">
+                  <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
+                  <a class="card-like text-center mt-5" href="#"><img class="img-fluid heart" src="images/corazon.png" alt=""> 225</a>
+                </ul>
+
+              </div>
+            </div>
+
+            <div class="card cards">
+              <h1 class="card-title">Pastel de fresa</h1>
+              <a href="receta.html"><img class="card-img-top" src="images/fresa.png" alt="Pastel de fresa"></a>
+              <div class="card-body red-space">
+                <p class="card-text card-body-text text-center">Detalles</p>
+                <p class="card-text card-body-text text-center">
+                  Dificultad: Avanzado <br>
+                  Duración: 3 horas <br>
+                  Categoría: Postre <br>
+                  Ocasión: Día de la madre <br>
+                </p>
+                <img class="img-fluid line" src="images/linea.png" alt="division">
+                <ul class="text-center">
+                  <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
+                  <a class="card-like text-center mt-5" href="#"><img class="img-fluid heart" src="images/corazon.png" alt=""> 225</a>
+                </ul>
+
+              </div>
+            </div>
+
+            <div class="card cards">
+              <h1 class="card-title">Sopa azteca</h1>
+              <a href="receta.html"><img class="card-img-top" src="images/azteca.png" alt="sopa azteca"></a>
+              <div class="card-body red-space">
+                <p class="card-text card-body-text text-center">Detalles</p>
+                <p class="card-text card-body-text text-center">
+                  Dificultad: Intermedio <br>
+                  Duración: 2 horas <br>
+                  Categoría: Sopa <br>
+                  Ocasión: Todas <br>
+                </p>
+                <img class="img-fluid line" src="images/linea.png" alt="division">
+                <ul class="text-center">
+                  <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
+                  <a class="card-like text-center mt-5" href="#"><img class="img-fluid heart" src="images/corazon.png" alt=""> 225</a>
+                </ul>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+
+        <div class="carousel-item">
+          <div class="cards-wrapper">
+            <div class="card cards">
+              <h1 class="card-title">Omelette</h1>
+              <a href="receta.html"><img class="card-img-top" src="images/omelet.png" alt="omelette"></a>
+              <div class="card-body red-space">
+                <p class="card-text card-body-text text-center">Detalles</p>
+                <p class="card-text card-body-text text-center">
+                  Dificultad: Fácil <br>
+                  Duración: 30 min <br>
+                  Categoría: Desayuno <br>
+                  Ocasión: Todas <br>
+                </p>
+                <img class="img-fluid line" src="images/linea.png" alt="division">
+                <ul class="text-center">
+                  <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
+                  <a class="card-like text-center mt-5" href="#"><img class="img-fluid heart" src="images/corazon.png" alt=""> 225</a>
+                </ul>
+
+              </div>
+            </div>
+
+            <div class="card cards">
+              <h1 class="card-title">Limonada</h1>
+              <a href="receta.html"><img class="card-img-top" src="images/limonada.png" alt="limonada"></a>
+              <div class="card-body red-space">
+                <p class="card-text card-body-text text-center">Detalles</p>
+                <p class="card-text card-body-text text-center">
+                  Dificultad: Fácil <br>
+                  Duración: 15 min <br>
+                  Categoría: Bebida <br>
+                  Ocasión: Todas <br>
+                </p>
+                <img class="img-fluid line" src="images/linea.png" alt="division">
+                <ul class="text-center">
+                  <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
+                  <a class="card-like text-center mt-5" href="#"><img class="img-fluid heart" src="images/corazon.png" alt=""> 225</a>
+                </ul>
+
+              </div>
+            </div>
+
+            <div class="card cards">
+              <h1 class="card-title">Bocadillo de atún</h1>
+              <a href="receta.html"><img class="card-img-top" src="images/atun.png" alt="bocadillo de atún"></a>
+              <div class="card-body red-space">
+                <p class="card-text card-body-text text-center">Detalles</p>
+                <p class="card-text card-body-text text-center">
+                  Dificultad: Fácil <br>
+                  Duración: 30 min <br>
+                  Categoría: Entrada <br>
+                  Ocasión: Semana Santa <br>
+                </p>
+                <img class="img-fluid line" src="images/linea.png" alt="division">
+                <ul class="text-center">
+                  <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
+                  <a class="card-like text-center mt-5" href="#"><img class="img-fluid heart" src="images/corazon.png" alt=""> 225</a>
+                </ul>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="cards-wrapper">
+
+            <div class="card cards">
+              <h1 class="card-title">Arroz con pollo</h1>
+              <a href="receta.html"><img class="card-img-top" src="images/arpollo.png" alt="Arroz con pollo"></a>
+              <div class="card-body red-space">
+                <p class="card-text card-body-text text-center">Detalles</p>
+                <p class="card-text card-body-text text-center">
+                  Dificultad: Intermedio <br>
+                  Duración: 2 horas <br>
+                  Categoría: Almuerzo <br>
+                  Ocasión: Día del niño <br>
+                </p>
+                <img class="img-fluid line" src="images/linea.png" alt="division">
+                <ul class="text-center">
+                  <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
+                  <a class="card-like text-center mt-5" href="#"><img class="img-fluid heart" src="images/corazon.png" alt=""> 225</a>
+                </ul>
+
+              </div>
+            </div>
+
+            <div class="card border-0">
 
             </div>
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+            <div class="card border-0">
+
             </div>
 
-    </section>
+          </div>
+        </div>
+
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+  </section>
+
 
   </body>
 
