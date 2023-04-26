@@ -20,13 +20,21 @@
 }
 
 .text-area-add {
+    @include mixins.set-font(variables.$ff, variables.$fw-SemiBold, variables.$fs-med, variables.$clr-red);
     text-align: left;
-    color: variables.$clr-green;
 }
 
-.text-h3 {
+
+.sub-title-add {
+    @include mixins.set-font(variables.$ff, variables.$fw-SemiBold, variables.$fs-med, variables.$clr-red);
     text-align: center;
-    font-weight: variables.$fw-Regular;
     margin-bottom: 1rem;
+}
+
+
+.guardar-btn{
+    @include mixins.set-btn(variables.$clr-red, variables.$clr-red,variables.$clr-white,variables.$fs-reg );
+    padding: 0.5rem;
+    margin-bottom: 3rem;
 }
 

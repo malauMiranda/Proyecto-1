@@ -1,0 +1,11 @@
+@use './abstracts/variables';
+@use './abstracts/mixins';
+
+
+.nav-bar {
+    @include mixins.set-font(variables.$ff, variables.$fw-ExtraLight, variables.$fs-reg, variables.$clr-white);
+    width: 100%;
+    background-color: variables.$clr-red;
+    padding-bottom: .3rem;
+    padding-top: .7rem;
+}

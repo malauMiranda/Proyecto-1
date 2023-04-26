@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;400&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Principal</title>
+</head>
+
+
+    
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light red-space">
+    <div class="container-fluid nav-bar">
+      <!--Logo-->
+      <a class="navbar-brand pe-lg-5 mb-3" href="Inicio.php">
+        <img src="images/logo.png" alt="" /></a>
+
+      <!--Menu Hamburguesa-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <!--Menu-->
+      <div class="collapse navbar-collapse align-menu align-nav-menu" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item ps-lg-4 pe-lg-5 nav-link">
+            <a class="nav-link active text-white" aria-current="page" href="Inicio.php">Inicio</a>
+          </li>
+          <li class="nav-item ps-lg-4 pe-lg-5 nav-link">
+            <a class="nav-link text-white" href="Inicio.php#carrusel">Top recetas</a>
+          </li>
+          <li class="nav-item ps-lg-4 pe-lg-5 nav-link">
+            <a class="nav-link text-white" href="MisRecetas.php"> Mis recetas</a>
+          </li>
+
+          <li class="nav-item ps-lg-4 pe-lg-5 nav-link">
+            <a class="navbar-brand nav-link text-white btn" href="admin.html">
+              <img src="images/Admin.png" alt="" width="38" height="38" class="d-inline-block">
+              <span class="nav-bar text-white">Admin</span>
+            </a>
+          </li>
+          <li class="nav-item ps-lg-4 pe-lg-5 nav-link">
+            <a class="navbar-brand nav-link text-white">
+              <img src="images/Regis.png" alt="" width="38" height="38" class="d-inline-block">
+              <span class="nav-bar text-white" href="#carrusel">Usuario:Admin</span>
+              </a>
+          </li>
+
+          <li class="nav-item ps-lg-4 pe-lg-5 nav-link">
+            <a class="navbar-brand nav-link text-white" href="Sesion.php">
+              <span class="nav-bar text-white" href="logout.php">Logout</span>
+            </a>
+          </li>
+          
+
+          <!--Menu Hamburguesa, despliega el menu-->
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<body>
+    <!--TITULO-->
+    <div class="image-bg">
+        <section class="container-fluid">
+            <h1 class="top-title text-white">Deliciosas recetas <br> para cada <br> ocasión</h1>
+        </section>
+    </div>
+
+
+
+
+     <!--CARRUSEL-->
+     <section id="carrusel" class="container-fluid">
+        <h1 class="sub-title text-center">Top 10 recetas más votadas</h1>
+        <div id="carouselExampleControls" class="carousel slide carousel-dark" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+            
+      
+        <div class="row">
+             
+                
+                    <div class="carousel-item active">
+               
+                    <div class="carousel-item">
+              
+                
+                    <div class=" overflow-hidden text-center d-flex justify-content-center align-items-center">
+                        <div class="card" style="width:23rem;">
+                            <form action="" method="post">
+                                <h1 class="xs-sub-title">Arroz</h1>
+                                <a href="#"><img width="370" height="250" src="images/arroz.jpg" class="card-img-top"
+                                        alt="foto"></a>
+                                <div class="card-body red-space">
+                                    <p class="card-text xs-sub-title-white text-center">Detalles</p>
+                                    <p class="card-text xs-sub-title-white text-center">
+                                        Dificultad:  <br>
+                                        Duración: <br>
+                                        Categoría:  <br>
+                                        Ocasión:  <br>
+                                    </p>
+                                    <img class="img-fluid line" src="images/linea.png" alt="division">
+                                    <ul style="padding-left: 0px;">
+                                        <input type="hidden" name="id" value=""></input>
+                                        <input type="submit" class="btn btn-outline-light" name="guardar_misrecetas" value="Agregar"> 
+                                      
+                                            <p style="padding-left: 0px; margin-top: 0.5rem" class="small-text-like heart text-center d-flex justify-content-center align-items-center" href="#"><img class="img-fluid heart" src="img/corazon.png" alt=""><?php echo $result[$i]['like'];?></p>
+                                      
+                                            <p style="padding-left: 0px; margin-top: 0.5rem" class="small-text-like heart text-center d-flex justify-content-center align-items-center" href="#"><img class="img-fluid heart" src="img/corazon_like.png" alt=""><?php echo $result[$i]['like'];?></p>
+                                        
+                                        </input>
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+      
+
+            </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+    </section>
+
+  </body>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+
+  </html>
