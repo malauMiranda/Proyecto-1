@@ -28,3 +28,8 @@
     @include mixins.set-font(variables.$ff, variables.$fw-SemiBold, variables.$fs-med, variables.$clr-gray);
     text-align: center;
 }
+
+.btn-category{
+@include mixins.set-btn(variables.$clr-red, variables.$clr-red,variables.$clr-white,variables.$fs-reg );
+padding: 0.5rem;
+}

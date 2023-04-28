@@ -13705,6 +13705,18 @@ textarea.form-control-lg {
   text-align: center;
 }
 
+.btn-category {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.125rem;
+  place-items: center;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border: #f23838;
+  background: #f23838;
+  color: white;
+  padding: 0.5rem;
+}
+
 .card-title {
   /*título de las tarjetas*/
   font-family: "Raleway", sans-serif;
