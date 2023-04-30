@@ -13517,7 +13517,7 @@ textarea.form-control-lg {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 2rem;
-  color: #f23838;
+  color: #689400;
   margin-bottom: 4.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13532,6 +13532,13 @@ textarea.form-control-lg {
   font-weight: 600;
   font-size: 1.5rem;
   color: #212529;
+}
+
+.green-sub-titles {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #689400;
 }
 
 .regular-text {
@@ -13602,7 +13609,7 @@ textarea.form-control-lg {
 
 .table-listas {
   /*Tabla*/
-  border: 0.063rem solid #f78d8d;
+  border: 0.063rem solid #f23838;
   border-collapse: collapse;
   width: 80%;
   margin-left: auto;
@@ -13611,7 +13618,7 @@ textarea.form-control-lg {
 
 .td-listas {
   /*columnas y filas tabla*/
-  border: 0.063rem solid #f78d8d;
+  border: 0.063rem solid #689400;
   border-collapse: collapse;
 }
 
@@ -13650,7 +13657,7 @@ textarea.form-control-lg {
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   font-size: 1.5rem;
-  color: #f23838;
+  color: #689400;
   text-align: left;
 }
 
@@ -13658,7 +13665,7 @@ textarea.form-control-lg {
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   font-size: 1.5rem;
-  color: #f23838;
+  color: #689400;
   text-align: center;
   margin-bottom: 1rem;
 }
@@ -13720,7 +13727,7 @@ textarea.form-control-lg {
   padding: 1rem 2rem;
   text-decoration: none;
   border: #f23838;
-  background: #f23838;
+  background: #689400;
   color: white;
   padding: 0.5rem;
 }
@@ -13809,7 +13816,7 @@ textarea.form-control-lg {
 }
 
 .tabla {
-  border: 0.063rem solid #f78d8d;
+  border: 0.063rem solid #689400;
   border-collapse: collapse;
   width: 80%;
   margin-left: auto;
@@ -13817,7 +13824,7 @@ textarea.form-control-lg {
 }
 
 .td-tabla {
-  border: 0.09rem solid #f78d8d;
+  border: 0.09rem solid #689400;
   border-collapse: collapse;
   padding: 0.6rem;
 }

@@ -30,6 +30,6 @@
 }
 
 .btn-category{
-@include mixins.set-btn(variables.$clr-red, variables.$clr-red,variables.$clr-white,variables.$fs-reg );
+@include mixins.set-btn(variables.$clr-green, variables.$clr-red,variables.$clr-white,variables.$fs-reg );
 padding: 0.5rem;
 }

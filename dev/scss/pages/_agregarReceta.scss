@@ -20,13 +20,13 @@
 }
 
 .text-area-add {
-    @include mixins.set-font(variables.$ff, variables.$fw-SemiBold, variables.$fs-med, variables.$clr-red);
+    @include mixins.set-font(variables.$ff, variables.$fw-SemiBold, variables.$fs-med, variables.$clr-green);
     text-align: left;
 }
 
 
 .sub-title-add {
-    @include mixins.set-font(variables.$ff, variables.$fw-SemiBold, variables.$fs-med, variables.$clr-red);
+    @include mixins.set-font(variables.$ff, variables.$fw-SemiBold, variables.$fs-med, variables.$clr-green);
     text-align: center;
     margin-bottom: 1rem;
 }

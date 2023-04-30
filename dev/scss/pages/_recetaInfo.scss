@@ -2,7 +2,7 @@
 @use './abstracts/mixins';
 
 .tabla {
-    border: 0.063rem solid variables.$clr-pink;
+    border: 0.063rem solid variables.$clr-green;
     border-collapse: collapse;
     width: 80%;
     margin-left: auto;
@@ -10,7 +10,7 @@
 }
 
 .td-tabla {
-    border: 0.090rem solid variables.$clr-pink;
+    border: 0.090rem solid variables.$clr-green;
     border-collapse: collapse;
     padding: 0.60rem;
 }
