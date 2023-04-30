@@ -35,10 +35,19 @@
 
 
 .cards {
-    /*Tatjeta*/
+    /*Tatjetas carrusel*/
     margin: 1em;
     width: calc(100%/3);
 }
+
+.cards-rec {
+    /*Tatjetas recomendados*/
+    width: 23rem;
+    margin: 1em;
+}
+
+
+
 
 .image-wrapper{
     height: 22vw;

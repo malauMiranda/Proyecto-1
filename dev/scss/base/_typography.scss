@@ -18,3 +18,8 @@
 .regular-text {
     @include mixins.set-font(variables.$ff, variables.$fw-Regular, variables.$fs-reg, variables.$clr-text);
 }
+
+.recipe-title{
+    @include mixins.set-font(variables.$ff, variables.$fw-SemiBold, variables.$fs-xxmed, variables.$clr-gray);
+    text-align: center;
+}

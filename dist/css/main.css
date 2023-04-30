@@ -13541,6 +13541,14 @@ textarea.form-control-lg {
   color: #575757;
 }
 
+.recipe-title {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 3rem;
+  color: #212529;
+  text-align: center;
+}
+
 .footer-text {
   font-family: "Raleway", sans-serif;
   font-weight: 300;
@@ -13768,9 +13776,15 @@ textarea.form-control-lg {
 }
 
 .cards {
-  /*Tatjeta*/
+  /*Tatjetas carrusel*/
   margin: 1em;
   width: 33.3333333333%;
+}
+
+.cards-rec {
+  /*Tatjetas recomendados*/
+  width: 23rem;
+  margin: 1em;
 }
 
 .image-wrapper {
@@ -13792,4 +13806,26 @@ textarea.form-control-lg {
   font-weight: 1000;
   font-size: 3rem;
   color: var(--clr-black);
+}
+
+.tabla {
+  border: 0.063rem solid #f78d8d;
+  border-collapse: collapse;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.td-tabla {
+  border: 0.09rem solid #f78d8d;
+  border-collapse: collapse;
+  padding: 0.6rem;
+}
+
+.subtitle-recipe {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #f23838;
+  margin: 1rem;
 }
