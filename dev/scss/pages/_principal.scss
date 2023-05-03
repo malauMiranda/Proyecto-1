@@ -32,4 +32,5 @@
 .btn-category{
 @include mixins.set-btn(variables.$clr-green, variables.$clr-red,variables.$clr-white,variables.$fs-reg );
 padding: 0.5rem;
+border-radius: .5rem;
 }

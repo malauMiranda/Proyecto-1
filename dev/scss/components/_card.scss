@@ -3,7 +3,7 @@
 
 .card-title {
     /*título de las tarjetas*/
-    @include mixins.set-font(variables.$ff, variables.$fw-SemiBold, variables.$fs-xsm, variables.$clr-gray);
+    @include mixins.set-font(variables.$ff, variables.$fw-SemiBold, variables.$fs-reg, variables.$clr-gray);
     align-self: center;
     margin-top: 1rem;
 }
@@ -28,17 +28,6 @@
 
 }
 
-.cards-wrapper {
-    /*Filas de tarjetas*/
-    display: flex;
-}
-
-
-.cards {
-    /*Tatjetas carrusel*/
-    margin: 1em;
-    width: calc(100%/3);
-}
 
 .cards-rec {
     /*Tatjetas recomendados*/

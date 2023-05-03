@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;400&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Editar Perfil</title>
+</head>
+
+
+  <body>
+       <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light red-space">
+    <div class="container-fluid nav-bar">
+      <!--Logo-->
+      <a class="navbar-brand pe-lg-5 mb-3" href="principal.html">
+        <img src="images/logo.png" alt="" /></a>
+
+      <!--Menu Hamburguesa-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!--Menu-->
+      <div class="collapse navbar-collapse align-menu align-nav-menu" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-lg-5 ms-lg-5">
+          <li class="nav-item ps-lg-5 ms-lg-5 pe-lg-5 nav-link">
+            <a class="nav-link active text-white" aria-current="page" href="principal.html">Inicio</a>
+          </li>
+          <li class="nav-item ps-lg-5 ms-lg-2 pe-lg-5 nav-link">
+            <a class="nav-link text-white" href="topRecetas.html">Top recetas</a>
+          </li>
+          <li class="nav-item ps-lg-5 ms-lg-5 pe-lg-5 nav-link">
+            <a class="nav-link text-white" href="verRecetas.html"> Ver recetas</a>
+          </li>
+
+
+          <li class="nav-item pe-lg-2 nav-link">
+            <a class="navbar-brand nav-link text-white" href="inicio.html">
+              <img src="images/user.png" alt="" width="38" height="38" class="d-inline-block ms-3"> Log In
+            </a>
+          </li>
+
+          <li class="nav-item nav-link">
+            <a class="navbar-brand nav-link text-white" href="perfil.html">
+              <img src="images/user.png" alt="" width="38" height="38" class="d-inline-block ms-3"> Perfil
+            </a>
+          </li>
+          
+
+          <li class="nav-item ps-lg-3 nav-link">
+            <a class="navbar-brand nav-link text-white" href="inicio.html">
+              <span class="nav-bar text-white" href="#">Logout</span>
+            </a>
+          </li>
+
+
+          <!--Menu Hamburguesa, despliega el menu-->
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    
+<section class="container-fluid">
+    <h1 class="text-center mb-lg-5 green-sub-titles">Editar Usuario</h1>
+    <div class="row">
+   <!--Imagen-->
+   <div class="col">
+    <h3 class="text-center sub-titles"> Imagen de perfil</h3>
+   <div id="display-image" class="d-flex justify-content-center"></div>
+   <div class="d-flex justify-content-center mt-5">
+     <div class="form-control-lg">
+       <input class="form-control regular-text" id="image-input"  name="fileTest" type="file" accept=".png, .jpg, .jpeg">
+     </div>
+   </div>
+ </div>
+
+
+
+   <!--Espacios a rellenar-->
+   
+
+   
+ <div class="col">
+   <h3 class="sub-titles mt-lg-5">Nombre de usuario</h3>
+   <input type="text"  class="col-8 form-text form-recipe form-control-lg regular-text" />
+   <h3 class="sub-titles mt-lg-5">Nombre completo</h3>
+   <input type="text" class="col-8 form-text form-recipe form-control-lg  regular-text" />
+   <h3 class="sub-titles mt-lg-5">Correo electrónico</h3>
+   <input type="text" class="col-8 form-text form-recipe form-control-lg  regular-text" />  
+   <h3 class="sub-titles mt-lg-5">Contraseña</h3>
+   <input type="text" class="col-8 form-text form-recipe form-control-lg  regular-text" />  
+   </div>
+</div>
+
+<div class="text-center">
+ <a href="perfil.html" class="btn green-user-btn  pt-2 ps-lg-4 pe-lg-4 mt-lg-5 mb-lg-5">Editar</a>
+</div>
+</section>
+
+</body>
+
+<footer class="red-space">
+    <p class="footer-text text-center m-0 p-lg-5 mt-5">
+      © 2023. Todos los derechos reservados
+    </p>
+  </footer>
+
+
+</html>

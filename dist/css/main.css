@@ -13580,109 +13580,6 @@ textarea.form-control-lg {
   padding-top: 0.7rem;
 }
 
-.navbar-text {
-  font-family: "Raleway", sans-serif;
-  font-weight: 300;
-  font-size: 1.125rem;
-  color: white;
-}
-
-.title-admin {
-  font-family: "Raleway", sans-serif;
-  font-weight: 700;
-  font-size: 3.6rem;
-  color: white;
-  text-align: center;
-}
-
-.top-bg {
-  width: 100%;
-  background: url(../images/comida.jpg) no-repeat;
-  background-size: cover;
-  padding: 10rem;
-  margin-top: 1rem;
-}
-
-.text-rows {
-  font-size: 1rem;
-}
-
-.table-listas {
-  /*Tabla*/
-  border: 0.063rem solid #f23838;
-  border-collapse: collapse;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.td-listas {
-  /*columnas y filas tabla*/
-  border: 0.063rem solid #689400;
-  border-collapse: collapse;
-}
-
-.text-listas {
-  font-family: "Raleway", sans-serif;
-  font-weight: 400;
-  font-size: 1.125rem;
-  color: #575757;
-}
-
-.titles-listas {
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-  font-size: 1.125rem;
-  color: white;
-}
-
-.btn-image {
-  background-color: #f23838;
-  border-radius: 0.9rem;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  margin-bottom: 4rem;
-}
-
-.form-recipe {
-  text-align: center;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1rem;
-  color: #000000;
-}
-
-.text-area-add {
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-  font-size: 1.5rem;
-  color: #689400;
-  text-align: left;
-}
-
-.sub-title-add {
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-  font-size: 1.5rem;
-  color: #689400;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.guardar-btn {
-  font-family: "Raleway", sans-serif;
-  font-size: 1.125rem;
-  place-items: center;
-  padding: 1rem 2rem;
-  text-decoration: none;
-  border: #f23838;
-  background: #f23838;
-  color: white;
-  padding: 0.5rem;
-  margin-bottom: 3rem;
-}
-
 .align-nav-menu {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13730,13 +13627,14 @@ textarea.form-control-lg {
   background: #689400;
   color: white;
   padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 .card-title {
   /*título de las tarjetas*/
   font-family: "Raleway", sans-serif;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: #212529;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
@@ -13773,19 +13671,6 @@ textarea.form-control-lg {
   padding: 0.5rem;
   margin-bottom: 1rem;
   margin-left: 5rem;
-}
-
-.cards-wrapper {
-  /*Filas de tarjetas*/
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.cards {
-  /*Tatjetas carrusel*/
-  margin: 1em;
-  width: 33.3333333333%;
 }
 
 .cards-rec {
@@ -13835,4 +13720,50 @@ textarea.form-control-lg {
   font-size: 1.5rem;
   color: #f23838;
   margin: 1rem;
+}
+
+.tabla-perfil {
+  background: #689400;
+  border-collapse: collapse;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.5rem;
+}
+
+.img-user {
+  width: 20rem;
+  height: 20rem;
+}
+
+.text-user {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: white;
+  margin: 1rem;
+}
+
+.white-user-btn {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.125rem;
+  place-items: center;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border: #f23838;
+  background: white;
+  color: #f23838;
+  padding: 0.5rem;
+}
+
+.green-user-btn {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.125rem;
+  place-items: center;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border: #f23838;
+  background: #689400;
+  color: white;
+  padding: 0.5rem;
 }

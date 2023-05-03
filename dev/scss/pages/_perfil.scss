@@ -1,0 +1,32 @@
+@use './abstracts/variables';
+@use './abstracts/mixins';
+
+.tabla-perfil {
+    background: variables.$clr-green;
+    border-collapse: collapse;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: .5rem;
+}
+
+.img-user{
+    width: 20rem;
+    height: 20rem;
+}
+
+.text-user{
+    @include mixins.set-font(variables.$ff, variables.$fw-Regular, variables.$fs-med, variables.$clr-white);
+    margin: 1rem;
+}
+
+.white-user-btn{
+    @include mixins.set-btn(variables.$clr-white, variables.$clr-red,variables.$clr-red,variables.$fs-reg );
+    padding: 0.5rem;
+}
+
+.green-user-btn{
+    @include mixins.set-btn(variables.$clr-green, variables.$clr-red,variables.$clr-white,variables.$fs-reg );
+    padding: 0.5rem;
+}
+
