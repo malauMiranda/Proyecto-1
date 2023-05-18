@@ -33,6 +33,7 @@
     /*Tatjetas recomendados*/
     width: 23rem;
     margin: 1em;
+    text-align: center;
 }
 
 
@@ -43,6 +44,12 @@
 
 }
 
+
+.card-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 

@@ -13677,10 +13677,23 @@ textarea.form-control-lg {
   /*Tatjetas recomendados*/
   width: 23rem;
   margin: 1em;
+  text-align: center;
 }
 
 .image-wrapper {
   height: 22vw;
+}
+
+.card-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .big-text-like {
