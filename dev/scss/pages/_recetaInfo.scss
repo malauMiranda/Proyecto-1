@@ -20,3 +20,9 @@
     @include mixins.set-font(variables.$ff, variables.$fw-SemiBold, variables.$fs-med, variables.$clr-red);
     margin: 1rem;
 }
+
+.info-img{
+    width: 100%;
+    height: auto;
+    max-width: 30rem;
+}

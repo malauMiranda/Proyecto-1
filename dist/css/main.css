@@ -13580,6 +13580,12 @@ textarea.form-control-lg {
   padding-top: 0.7rem;
 }
 
+.round-img {
+  border-radius: 50%;
+  height: 3rem;
+  width: 3.2rem;
+}
+
 .align-nav-menu {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13597,7 +13603,6 @@ textarea.form-control-lg {
   background: url(../images/comida.jpg) no-repeat;
   background-size: cover;
   padding-top: 6rem;
-  padding-left: 2rem;
   padding-bottom: 12rem;
   margin-bottom: 3rem;
 }
@@ -13733,6 +13738,12 @@ textarea.form-control-lg {
   font-size: 1.5rem;
   color: #f23838;
   margin: 1rem;
+}
+
+.info-img {
+  width: 100%;
+  height: auto;
+  max-width: 30rem;
 }
 
 .tabla-perfil {

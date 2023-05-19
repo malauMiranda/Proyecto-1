@@ -11,267 +11,77 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;400&display=swap" rel="stylesheet">
     <!-- Google Fonts -->
     <link rel="stylesheet" href="./css/main.css">
-    <title>Principal</title>
+    <title>Recipe</title>
 </head>
 
 <body>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light red-space">
-        <div class="container-fluid nav-bar">
-          <!--Logo-->
-          <a class="navbar-brand pe-lg-5 mb-3" href="principal.html">
-            <img src="images/logo.png" alt="" /></a>
+<section id="app">
     
-          <!--Menu Hamburguesa-->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-    
-          <!--Menu-->
-          <div class="collapse navbar-collapse align-menu align-nav-menu" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-lg-5 ms-lg-5">
-              <li class="nav-item ps-lg-5 ms-lg-5 pe-lg-5 nav-link">
-                <a class="nav-link active text-white" aria-current="page" href="principal.html">Inicio</a>
-              </li>
-              <li class="nav-item ps-lg-5 ms-lg-2 pe-lg-5 nav-link">
-                <a class="nav-link text-white" href="topRecetas.html">Top recetas</a>
-              </li>
-              <li class="nav-item ps-lg-5 ms-lg-5 pe-lg-5 nav-link">
-                <a class="nav-link text-white" href="verRecetas.html"> Ver recetas</a>
-              </li>
-    
-    
-              <li class="nav-item pe-lg-2 nav-link">
-                <a class="navbar-brand nav-link text-white" href="inicio.html">
-                  <img src="images/user.png" alt="" width="38" height="38" class="d-inline-block ms-3"> Log In
-                </a>
-              </li>
-    
-              <li class="nav-item nav-link">
-                <a class="navbar-brand nav-link text-white" href="perfil.html">
-                  <img src="images/user.png" alt="" width="38" height="38" class="d-inline-block ms-3"> Perfil
-                </a>
-              </li>
-              
-    
-              <li class="nav-item ps-lg-3 nav-link">
-                <a class="navbar-brand nav-link text-white" href="inicio.html">
-                  <span class="nav-bar text-white" href="#">Logout</span>
-                </a>
-              </li>
-    
-    
-              <!--Menu Hamburguesa, despliega el menu-->
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </ul>
-          </div>
-        </div>
-      </nav>
+  <navbar user="Laura" image="images/fresa.png"></navbar>
 
 
     <!--TITULO-->
     <section class="container-fluid">
-        <h1 class="recipe-title mt-5 mb-2">Arroz con leche</h1>
-        <img class="img-fluid" src="images/red line.png" alt="linea">
-    </section>
 
-    <section class="container-fluidtext">
-        <a class="regular-text pe-lg-5 ps-lg-5"><img class="img-fluid" src="images/corazon R.png" alt=""> 225</a>
-    </section>
-
-    <section class="container-fluid text-center">
-        <img class="img-fluid" src="images/leche.jpg" alt="Arroz con leche">
-    </section>
-
-    <!--Tabla-->
-    <section class="container-fluid ">
-        <table class="tabla mt-5 text-center">
-
-            <tbody>
-                <tr>
-                    <td class="text-center regular-text td-tabla">Dificultad: Fácil</td>
-                    <td class="text-center regular-text td-tabla">Tiempo total: 3h</td>
-                    <td class="text-center regular-text td-tabla">6 porciones</td>
-                </tr>
-                <tr>
-                    <td class="text-center regular-text td-tabla">Categoria: Almuerzo</td>
-                    <td class="text-center regular-text td-tabla">Tiempo cocción: 2h 30 min</td>
-                    <td class="text-center regular-text td-tabla">Ocasión: Todas</td>
-                </tr>
-
-            </tbody>
-        </table>
-
-        <!--Cuadro-->
-        <table class="tabla mt-lg-4">
-
-            <tbody>
-                <tr>
-                    <td>
-                        <h1 class="subtitle-recipe ms-5 mt-4">Descripción</h1>
-                        <p class="me-5 ms-5 regular-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod
-                            commodi
-                            iusto numquam
-                            consectetur quam dolor, vero, reiciendis, nobis accusamus ex debitis. Ipsum voluptatibus
-                            sint nulla deleniti deserunt similique maxime mollitia. Lorem ipsum dolor, sit amet
-                            consectetur adipisicing elit. Cupiditate harum laboriosam similique, repudiandae facere
-                            magnam maxime reiciendis aut consequuntur officiis velit veritatis doloremque quae deleniti,
-                            vitae voluptate, soluta quibusdam ut?</p>
-                        <br>
-                        <h1 class="subtitle-recipe ms-5">Ingredientes</h1>
-                        <div class="col-md ms-5">
-
-                            <div class="regular-text">
-                                <p class="mt-2 mb-2">Lorem, ipsum dolor sit amet</p>
-                                <p class="mt-4 mb-4">Lorem, ipsum dolor sit amet</p>
-                                <p class="mt-4 mb-4">Lorem, ipsum dolor sit amet</p>
-                                <p class="mt-4 mb-4">Lorem, ipsum dolor sit amet</p>
-                                <p class="mt-4 mb-4">Lorem, ipsum dolor sit amet</p> 
-                            </div>
-
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-    <!--Instrucciones-->
-    <section class="container-fluid">
-        <h1 class="green-sub-titles text-center pt-5">Instrucciones</h1>
-
-        <p class="ms-lg-5 me-lg-5 regular-text pe-lg-5 ps-lg-5 mt-lg-5"> Lorem ipsum dolor sit
-            amet consectetur, adipisicing elit. Ex unde, natus iste reiciendis beatae inventore,
-            asperiores soluta odit adipisci quaerat veniam! Doloribus eligendi repellendus minus facilis ex consequuntur
-            nam repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos corporis maxime labore
-            nisi minus consequatur beatae numquam molestias! Dolore earum nemo eveniet, mollitia pariatur at saepe neque
-            similique minima iusto.</p>
-
-        <p class="ms-lg-5 me-lg-5 regular-text pe-lg-5 ps-lg-5 mt-lg-5"> Lorem ipsum dolor
-            sit
-            amet consectetur, adipisicing elit. Ex unde, natus iste reiciendis beatae inventore,
-            asperiores soluta odit adipisci quaerat veniam! Doloribus eligendi repellendus minus facilis ex consequuntur
-            nam repellat. </p>
-
-        <p class="ms-lg-5 me-lg-5 regular-text pe-lg-5 ps-lg-5 mt-lg-5">  Lorem ipsum dolor
-            sit
-            amet consectetur, adipisicing elit. Ex unde, natus iste reiciendis beatae inventore,
-            asperiores </p>
-
-        <p class="ms-lg-5 me-lg-5 regular-text pe-lg-5 ps-lg-5 mt-lg-5"> Lorem ipsum dolor
-            sit
-            amet consectetur, adipisicing elit. Ex unde, natus iste reiciendis beatae inventore,
-            asperiores soluta odit adipisci quaerat veniam! Doloribus eligendi repellen
-            nisi minus consequatur beatae numquam molestias! Dolore earum nemo eveniet.</p>
-
-        <p class="ms-lg-5 me-lg-5 regular-text pe-lg-5 ps-lg-5 mt-lg-5">  Lorem ipsum dolor
-            sit
-            amet consectetur, adipisicing elit. Ex unde, natus iste reiciendis beatae inventore,
+      <recipe-info name="Pancakes" likes=24 image="images/pan.png" level="Easy" category="Breakfast" readyIn=60 cookTime=50 servings=6 occasion="Mother's day" summary="Perfect pancakes are easier to make than you think. This pancake recipe produces thick, fluffy, and all-around delicious pancakes with just a few ingredients that are probably already in your kitchen (and it's so much better than the boxed stuff)." ingredients="Pancake mix" instructions="Your pancake will tell you when it's ready to flip. Wait until bubbles start to form on the top and the edges look dry and set. This will usually take about two to three minutes on each side.">
+      </recipe-info>
         
-            similique minima iusto.</p>
-
     </section>
+
+
+
+
+
 
     <!--Recomendaciones-->
     <section class="container-fluid">
-        <h1 class="green-sub-titles text-center pt-5">Recomendados</h1>
 
-        <div class="row">
-            <div class="col">
-            <div class="card cards-rec">
-              <h1 class="card-title">Panqueques</h1>
-              <a href="recetaInfo.html"><img class="card-img-top" src="images/pan.png" alt="Panqueques"></a>
-              <div class="card-body red-space">
-                <p class="card-text card-body-text text-center">Detalles</p>
-                <p class="card-text card-body-text text-center">
-                  Dificultad: Fácil <br>
-                  Duración: 45 min <br>
-                  Categoría: Desayuno <br>
-                  Ocasión: Verano <br>
-                </p>
-                <img class="img-fluid line" src="images/linea.png" alt="division">
-                <ul class="text-center">
-                  <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
-                  <a class="card-like text-center mt-5" href="#"><img class="img-fluid" src="images/corazon.png"
-                      alt=""> 225</a>
-                </ul>
-              </div>
-            </div>
-          </div>
-      
-          <div class="col">
-            <div class="card cards-rec">
-              <h1 class="card-title">Pollo en salsa blanca</h1>
-              <a href="recetaInfo.html"><img class="card-img-top" src="images/pollo.png" alt="Pollo"></a>
-              <div class="card-body red-space">
-                <p class="card-text card-body-text text-center">Detalles</p>
-                <p class="card-text card-body-text text-center">
-                  Dificultad: Intermedio <br>
-                  Duración: 1 hora <br>
-                  Categoría: Almuerzo <br>
-                  Ocasión: Día del padre <br>
-                </p>
-                <img class="img-fluid line" src="images/linea.png" alt="division">
-                <ul class="text-center">
-                  <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
-                  <a class="card-like text-center mt-5" href="#"><img class="img-fluid" src="images/corazon.png"
-                      alt=""> 225</a>
-                </ul>
-      
-              </div>
-            </div>
-          </div>
-      
-          <div class="col">
-            <div class="card cards-rec">
-              <h1 class="card-title">Malteada</h1>
-              <a href="recetaInfo.html"><img class="card-img-top" src="images/Ba.png" alt="Batido"></a>
-              <div class="card-body red-space">
-                <p class="card-text card-body-text text-center">Detalles</p>
-                <p class="card-text card-body-text text-center">
-                  Dificultad: Fácil <br>
-                  Duración: 15 min <br>
-                  Categoría: Bebida <br>
-                  Ocasión: Semana Santa <br>
-                </p>
-                <img class="img-fluid line" src="images/linea.png" alt="division">
-                <ul class="text-center">
-                  <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
-                  <a class="card-like text-center mt-5" href="#"><img class="img-fluid" src="images/corazon.png"
-                      alt=""> 225</a>
-                </ul>
-              </div>
-            </div>
-          </div>
-      
-      
-          </div>
-      
-    </section>
+      <h1 class="green-sub-titles text-center mt-5 mb-3">Recommendations</h1>
+  
+      <div class="row ">
+        <div class="col card-center">
+        <recipe-card name="Pancakes"image="images/pan.png" level="Fácil" category="Desayuno" servings="6" likes=4 ></recipe-card>
+      </div>
+  
+      <div class="col card-center">
+        <recipe-card name="Pancakes"image="images/pan.png" level="Fácil" category="Desayuno" servings="6" likes=4 ></recipe-card>
+      </div>
+  
+      <div class="col card-center">
+        <recipe-card name="Pancakes"image="images/pan.png" level="Fácil" category="Desayuno" servings="6" likes=4 ></recipe-card>
+      </div>
+  </section>
 
 
+    <footer class="red-space">
+      <p class="footer-text text-center m-0 p-4 mt-5">
+        © 2023. All rights reserved
+      </p>
+    </footer>
 
-
+</section>
 </body>
-
-<footer class="red-space">
-  <p class="footer-text text-center m-0 p-lg-5 mt-5">
-    © 2023. Todos los derechos reservados
-  </p>
-</footer>
 
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
   </script>
+
+   <!-- VueJS -->
+ <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+ <!-- main script -->
+ <script src="./js/component.js"></script>
+
+ <script src="./js/RecipeCard.js"></script>
+
+ <script src="./js/RecipeInfo.js"></script>
+
+ <script src="./js/Navbar.js"></script>
+
+ <script>
+  const mountedApp=app.mount("#app");
+</script>
 
   </html>
