@@ -11,77 +11,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;400&display=swap" rel="stylesheet">
     <!-- Google Fonts -->
     <link rel="stylesheet" href="./css/main.css">
-    <title>Registro</title>
+    <title>Sign Up</title>
 </head>
 
 
   <body class="d-flex flex-column min-vh-100">
 
     
-
-
-
-    <!--Cuerpo-->
-    <section class="container-fluid my-lg-5 mx-auto my-auto">
-      <div class="d-flex justify-content-center align-items-center mx-5 row">
-        <div class="row px-xl-5 mx-5">
-          <!--Campos de Registro-->
-          <div class="col-lg-6 align-self-center red-text-register">
-
-            
-            <h2 class=" d-flex justify-content-lg-start justify-content-center title-login">Registrarse</h2>
-            <form method="post" class="row text d-flex justify-content-lg-start justify-content-center needs-validation" novalidate>
-              <div class="w-75">
-                <input class="form-control form-space input-space static-text text-lg-start text-center" type="text" id="nombre" name="nombre_completo" required>
-                <span class="noclick msg d-flex justify-content-lg-start justify-content-center login-text">Nombre Completo</span>
-                <p class="valid-feedback">
-                </p>
-              </div>
-              <div class="w-75">
-                <input class="form-control form-space input-space static-text text-lg-start text-center" type="text" id="email" name="correo" required>
-                <span class="noclick msg d-flex justify-content-lg-start justify-content-center login-text">Correo
-                  Electrónico</span>
-                <p class="valid-feedback">
-                </p>
-              </div>
-              <div class="w-75">
-                <input class="form-control form-space input-space static-text text-lg-start text-center" type="text" id="usuario" name="nombre_usuario" required>
-                <span class="noclick msg d-flex justify-content-lg-start justify-content-center login-text">Nombre de
-                  Usuario</span>
-                <p class="valid-feedback">
-                </p>
-              </div>
-              <div class="w-75">
-                <input class="form-control form-space input-space static-text text-lg-start text-center" type="password" id="contraseña" name="contrasena" required>
-                <span class="noclick msg d-flex justify-content-lg-start justify-content-center login-text">Contraseña</span>
-                <p class="valid-feedback">
-                </p>
-              </div>
-              <div class="d-flex justify-content-lg-start justify-content-center">
-              <!--  <button type="submit" value="Guardar usuario" class="btn red-space text-light btn-lg btn-block fw-bold w-75 my-4" name="guardar_usuario" onclick="verificar()">
-                  Registrarse-->
-                  <a class="btn btn-block login-btn" href="inicio.html"> Registrarse</a>
-                </button>
-              </div>
-            </form>
+    <section id="app">
+      <!-- Navbar -->
+      
+      <nav class="navbar navbar-expand-lg navbar-dark red-space pt-3 mb-3">
+          <div class="container-fluid nav-bar">
+            <!--Logo-->
+            <a class="navbar-brand pe-lg-5 mb-3">
+              <img src="images/logo.png" alt="" /></a>
           </div>
-  
-          <!--Imagen-->
-          <div class="col-lg-6 d-none d-lg-block">
-            <img class="img-rounded img-fluid" src="images/Registro.jpg" alt="Registrarse">
-          </div>
-        </div>
-      </div>
-    </section>
+        </nav>
+      
+        <sign-up></sign-up>
+      
+      
+      
+      
+      <!--Cuerpo-->
+      <section class="container-fluid my-lg-5 mx-auto my-auto">
+      
+      </section>
+      
+      
+      
+      <footer class="red-space">
+          <p class="footer-text text-center m-0 p-4 mt-4">
+            © 2023. All rights reserved
+          </p>
+        </footer>
+      
+      
+      </section>
   </body>
 
 
-  <footer class="red-space">
-    <p class="footer-text text-center m-lg-4">
-        © 2023. Todos los derechos reservados
-    </p>
-</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+
+  <!-- VueJS -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <!-- main script -->
+  <script src="./js/component.js"></script>
+
+  <script src="./js/SignUp.js"></script>
+
+
+  <script>
+    const mountedApp = app.mount("#app");
+  </script>
+</html>
 </html>

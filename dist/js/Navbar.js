@@ -3,7 +3,7 @@ app.component('navbar', {
     props: {
         user:{
             type: String,
-            default: "default name"
+            default: "default user"
         },
 
         image:{
