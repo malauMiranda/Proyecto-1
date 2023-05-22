@@ -34,18 +34,20 @@
       <h1 class="subtitle text-center mt-5 mb-5">Top 10 recipes</h1>
 
       <div class="row">
+        <div v-for="(item, index) in recipes" class="col card-center"> 
+           
+          <recipe-card 
+          :name="item.name" 
+          :image="item.image" 
+          :level="item.level" 
+          :category="item.category" 
+          :servings="item.servings" 
+          :likes="item.likes">
+        </recipe-card>
 
-        <div class="col card-center">
-          <recipe-card name="Pancakes" image="images/pan.png" level="Fácil" category="Desayuno" servings="6" likes=4></recipe-card>
+        </div>
         </div>
 
-        <div class="col card-center">
-          <recipe-card name="Pancakes" image="images/pan.png" level="Fácil" category="Desayuno" servings="6" likes=4></recipe-card>
-        </div>
-
-        <div class="col card-center">
-          <recipe-card name="Pancakes" image="images/pan.png" level="Fácil" category="Desayuno" servings="6" likes=4></recipe-card>
-        </div>
 
       </div>
 
@@ -145,6 +147,8 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
+    <!-- AXIOS API JS-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   <!-- VueJS -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
