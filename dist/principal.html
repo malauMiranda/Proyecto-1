@@ -42,8 +42,14 @@
           :level="item.level" 
           :category="item.category" 
           :servings="item.servings" 
-          :likes="item.likes">
+          :likes="item.likes"
+          :index="item.id"
+          v-on:recipedetails="onClickRecipeDetails(item.id)">
         </recipe-card>
+
+        <recipe-info></recipe-info>
+
+
 
         </div>
         </div>

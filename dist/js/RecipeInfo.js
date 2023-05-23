@@ -1,6 +1,12 @@
 app.component('recipe-info', {
 
     props: {
+
+        id:{
+            type:Number,
+            required:true
+        },
+
         name:{
             type: String,
             default: "default name"
@@ -64,19 +70,21 @@ app.component('recipe-info', {
 
     },
 
+    methods: {
 
-
+        
+    },
 
 
     template:
     /*html*/
     ` 
-    <h1 class="recipe-title mt-5 mb-2">{{name}}</h1>
+    <h1 class="recipe-title mt-5 mb-2">{{recipeDetails.name}}</h1>
         <img class="img-fluid" src="images/red line.png" alt="linea">
     </section>
 
     <section class="container-fluidtext">
-        <a class="regular-text pe-lg-5 ps-lg-5"><img class="img-fluid" src="images/corazon R.png" alt=""> 225</a>
+        <a class="regular-text pe-lg-5 ps-lg-5"><img class="img-fluid" src="images/corazon R.png" alt="">{{recipeDetails.aggregateLikes}}</a>
     </section>
 
     <section class="container-fluid text-center">
@@ -89,14 +97,14 @@ app.component('recipe-info', {
 
             <tbody>
                 <tr>
-                    <td class="text-center regular-text td-tabla">Level: {{level}}</td>
-                    <td class="text-center regular-text td-tabla">Total Time: {{readyIn}} mins</td>
-                    <td class="text-center regular-text td-tabla">{{servings}} servings</td>
+                    <td class="text-center regular-text td-tabla">Level: {{recipeDetails.level}}</td>
+                    <td class="text-center regular-text td-tabla">Total Time: {{recipeDetails.readyIn}} mins</td>
+                    <td class="text-center regular-text td-tabla">{{recipeDetails.servings}} servings</td>
                 </tr>
                 <tr>
-                    <td class="text-center regular-text td-tabla">Category: {{category}}</td>
-                    <td class="text-center regular-text td-tabla">Cooking time: {{cookTime}} mins</td>
-                    <td class="text-center regular-text td-tabla">Occasion: {{occasion}}</td>
+                    <td class="text-center regular-text td-tabla">Category: {{recipeDetails.category}}</td>
+                    <td class="text-center regular-text td-tabla">Cooking time: {{recipeDetails.cookTime}} mins</td>
+                    <td class="text-center regular-text td-tabla">Occasion: {{recipeDetails.occasion}}</td>
                 </tr>
 
             </tbody>
