@@ -26,37 +26,51 @@
     </section>
   </div>
 
- 
+
     <!--TOP 10-->
+
+    
 
     <section class="container-fluid">
 
       <h1 class="subtitle text-center mt-5 mb-5">Top 10 recipes</h1>
 
+
       <div class="row">
-        <div v-for="(item, index) in recipes" class="col card-center"> 
-           
+        <div v-for="(item, index) in getLimitedRecipes(10)" class="col card-center"> 
           <recipe-card 
-          :name="item.name" 
-          :image="item.image" 
-          :level="item.level" 
-          :category="item.category" 
-          :servings="item.servings" 
-          :likes="item.likes"
-          :index="item.id"
-          v-on:recipedetails="onClickRecipeDetails(item.id)">
-        </recipe-card>
-
-        <recipe-info></recipe-info>
-
-
-
+            :name="item.name" 
+            :image="item.image" 
+            :level="item.level" 
+            :category="item.category" 
+            :servings="item.servings" 
+            :likes="item.likes"
+            :index="index"
+            v-on:recipedetails="onClickRecipeDetails"
+          ></recipe-card>
         </div>
-        </div>
-
-
       </div>
 
+      
+
+      <recipe-info
+      v-if="recipe.id !== null"
+      :name="recipe.name"
+      :likes="recipe.likes"
+      :image="recipe.image"
+      :level="recipe.level"
+      :category="recipe.category"
+      :readyIn="recipe.readyIn"
+      :cookTime="recipe.cookTime"
+      :servings="recipe.servings"
+      :occasion="recipe.occasion"
+      :summary="recipe.summary"
+      :ingredients="recipe.ingredients"
+      :instructions="recipe.instructions"
+    ></recipe-info>
+      
+
+     
       
       <div class="d-flex justify-content-center">
         <a class="btn btn-category mt-3 mb-5" href="topRecetas.html">View more</a>
@@ -100,41 +114,21 @@
 
     <section class=container-fluid>
 
-      <div class="row ">
-        <div class="col card-center">
-          <recipe-card name="Pancakes" image="images/pan.png" level="Fácil" category="Desayuno" servings="6"
-            likes=4></recipe-card>
+      <div class="row">
+        <div v-for="(item, index) in getLimitedRecipes(6)" class="col card-center"> 
+          <recipe-card 
+            :name="item.name" 
+            :image="item.image" 
+            :level="item.level" 
+            :category="item.category" 
+            :servings="item.servings" 
+            :likes="item.likes"
+            :index="index"
+            v-on:recipedetails="onClickRecipeDetails"
+          ></recipe-card>
         </div>
-
-        <div class="col card-center">
-          <recipe-card name="Pancakes" image="images/pan.png" level="Fácil" category="Desayuno" servings="6"
-            likes=4></recipe-card>
-        </div>
-
-        <div class="col card-center">
-          <recipe-card name="Pancakes" image="images/pan.png" level="Fácil" category="Desayuno" servings="6"
-            likes=4></recipe-card>
-        </div>
-
       </div>
 
-      <div class="row ">
-        <div class="col card-center">
-          <recipe-card name="Pancakes" image="images/pan.png" level="Fácil" category="Desayuno" servings="6"
-            likes=4></recipe-card>
-        </div>
-
-        <div class="col card-center">
-          <recipe-card name="Pancakes" image="images/pan.png" level="Fácil" category="Desayuno" servings="6"
-            likes=4></recipe-card>
-        </div>
-
-        <div class="col card-center">
-          <recipe-card name="Pancakes" image="images/pan.png" level="Fácil" category="Desayuno" servings="6"
-            likes=4></recipe-card>
-        </div>
-
-      </div>
     </section>
 
 
@@ -163,6 +157,9 @@
   <script src="./js/component.js"></script>
 
   <script src="./js/RecipeCard.js"></script>
+
+  
+  <script src="./js/RecipeInfo.js"></script>
 
   <script src="./js/Navbar.js"></script>
 

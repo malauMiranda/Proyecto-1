@@ -38,9 +38,10 @@ app.component('recipe-card', {
 
 methods: {
 
-    onClickViewRecipe(event){
+    onClickViewRecipe(){
         //console.log("VIEW");
-        this.$emit('recipedetails',this.index);
+        this.$emit('recipedetails', this.index);
+        
 
 
 
@@ -63,7 +64,7 @@ methods: {
       <p class="card-text card-body-text text-center">Servings: {{servings}} </p>
       <img class="img-fluid line" src="images/linea.png" alt="division">
       <ul class="text-center">
-      <button v-on:click="onClickViewRecipe"  class="btn card-body-text text-center">View</button><br>
+      <button v-on:click="onClickViewRecipe" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn card-body-text text-center">View</button><br>
         <button  class="btn card-body-text text-center" href="perfil.html">Add</button><br>
         <a class="card-like text-center mt-5" href="#"><img class="img-fluid" src="images/corazon.png"
             alt="">{{likes}}</a>
