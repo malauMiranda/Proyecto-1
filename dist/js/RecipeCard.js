@@ -30,6 +30,16 @@ app.component('recipe-card', {
             default: 1
         },
 
+        readyInMinutes:{
+            type: Number,
+            default: 1
+        },
+
+        preparationMinutes:{
+            type: Number,
+            default: 1
+        },
+
         index:{
             type: Number
         }
@@ -41,9 +51,6 @@ methods: {
     onClickViewRecipe(){
         //console.log("VIEW");
         this.$emit('recipedetails', this.index);
-        
-
-
 
     },
 },

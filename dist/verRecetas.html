@@ -21,297 +21,42 @@
 
         <section class="container-fluid mt-lg-5">
 
-            <h1 class="sub-titles text-center mt-5 mb-5">Nuestras recetas</h1>
+            <h1 class="sub-titles text-center mt-5 mb-5">Our recipes</h1>
+            <p class="regular-text text-center">Take a look at our delicious recipes</p>
 
 
 
             <div class="row">
-                <div class="col">
-                    <div class="card cards-rec">
-                        <h1 class="card-title">Panqueques</h1>
-                        <a href="recetaInfo.html"><img class="card-img-top" src="images/pan.png" alt="Panqueques"></a>
-                        <div class="card-body red-space">
-                            <p class="card-text card-body-text text-center">Detalles:</p>
-                            <p class="card-text card-body-text text-center">
-                                Dificultad: Fácil <br>
-                                Categoría: Desayuno <br>
-                                Porciones: 10 <br>
-                            </p>
-                            <img class="img-fluid line" src="images/linea.png" alt="division">
-                            <ul class="text-center">
-                                <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
-                                <a class="card-like text-center mt-5" href="#"><img class="img-fluid"
-                                        src="images/corazon.png" alt=""> 225</a>
-                            </ul>
-                        </div>
-                    </div>
+                <div v-for="(item, index) in getLimitedRecipes(10)" class="col card-center"> 
+                  <recipe-card 
+                    :name="item.name" 
+                    :image="item.image" 
+                    :level="item.level" 
+                    :category="item.category" 
+                    :servings="item.servings" 
+                    :likes="item.likes"
+                    :index="index"
+                    v-on:recipedetails="onClickRecipeDetails"
+                  ></recipe-card>
                 </div>
+              </div>
 
-                <div class="col">
-                    <div class="card cards-rec">
-                        <h1 class="card-title">Pollo en salsa blanca</h1>
-                        <a href="recetaInfo.html"><img class="card-img-top" src="images/pollo.png" alt="Pollo"></a>
-                        <div class="card-body red-space">
-                            <p class="card-text card-body-text text-center">Detalles:</p>
-                            <p class="card-text card-body-text text-center">
-                                Dificultad: Intermedio <br>
-                                Categoría: Almuerzo <br>
-                                Porciones: 6 <br>
-                            </p>
-                            <img class="img-fluid line" src="images/linea.png" alt="division">
-                            <ul class="text-center">
-                                <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
-                                <a class="card-like text-center mt-5" href="#"><img class="img-fluid"
-                                        src="images/corazon.png" alt=""> 225</a>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card cards-rec">
-                        <h1 class="card-title">Malteada</h1>
-                        <a href="recetaInfo.html"><img class="card-img-top" src="images/Ba.png" alt="Batido"></a>
-                        <div class="card-body red-space">
-                            <p class="card-text card-body-text text-center">Detalles:</p>
-                            <p class="card-text card-body-text text-center">
-                                Dificultad: Fácil <br>
-                                Categoría: Bebida <br>
-                                Porciones: 3 <br>
-                            </p>
-                            <img class="img-fluid line" src="images/linea.png" alt="division">
-                            <ul class="text-center">
-                                <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
-                                <a class="card-like text-center mt-5" href="#"><img class="img-fluid"
-                                        src="images/corazon.png" alt=""> 225</a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="row">
-                <div class="col">
-                    <div class="card cards-rec">
-                        <h1 class="card-title">Arrollados de queso y espinaca</h1>
-                        <a href="recetaInfo.html"><img class="card-img-top" src="images/rollos.png" alt="Arrollado"></a>
-                        <div class="card-body red-space">
-                            <p class="card-text card-body-text text-center">Detalles:</p>
-                            <p class="card-text card-body-text text-center">
-                                Dificultad: Fácil <br>
-                                Categoría: Entrada <br>
-                                Prisones: 10 <br>
-                            </p>
-                            <img class="img-fluid line" src="images/linea.png" alt="division">
-                            <ul class="text-center">
-                                <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
-                                <a class="card-like text-center mt-5" href="#"><img class="img-fluid"
-                                        src="images/corazon.png" alt=""> 225</a>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col">
-                    <div class="card cards-rec">
-                        <h1 class="card-title">Pastel de fresa</h1>
-                        <a href="recetaInfo.html"><img class="card-img-top" src="images/fresa.png"
-                                alt="Pastel de fresa"></a>
-                        <div class="card-body red-space">
-                            <p class="card-text card-body-text text-center">Detalles:</p>
-                            <p class="card-text card-body-text text-center">
-                                Dificultad: Avanzado <br>
-                                Categoría: Postre <br>
-                                Porciones: 8 <br>
-                            </p>
-                            <img class="img-fluid line" src="images/linea.png" alt="division">
-                            <ul class="text-center">
-                                <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
-                                <a class="card-like text-center mt-5" href="#"><img class="img-fluid"
-                                        src="images/corazon.png" alt=""> 225</a>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col">
-                    <div class="card cards-rec">
-                        <h1 class="card-title">Sopa azteca</h1>
-                        <a href="recetaInfo.html"><img class="card-img-top" src="images/azteca.png"
-                                alt="sopa azteca"></a>
-                        <div class="card-body red-space">
-                            <p class="card-text card-body-text text-center">Detalles:</p>
-                            <p class="card-text card-body-text text-center">
-                                Dificultad: Intermedio <br>
-                                Categoría: Sopa <br>
-                                Porciones: 4<br>
-                            </p>
-                            <img class="img-fluid line" src="images/linea.png" alt="division">
-                            <ul class="text-center">
-                                <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
-                                <a class="card-like text-center mt-5" href="#"><img class="img-fluid"
-                                        src="images/corazon.png" alt=""> 225</a>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <div class="card cards-rec">
-                        <h1 class="card-title">Arrollados de queso y espinaca</h1>
-                        <a href="recetaInfo.html"><img class="card-img-top" src="images/rollos.png" alt="Arrollado"></a>
-                        <div class="card-body red-space">
-                            <p class="card-text card-body-text text-center">Detalles:</p>
-                            <p class="card-text card-body-text text-center">
-                                Dificultad: Fácil <br>
-                                Categoría: Entrada <br>
-                                Prisones: 10 <br>
-                            </p>
-                            <img class="img-fluid line" src="images/linea.png" alt="division">
-                            <ul class="text-center">
-                                <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
-                                <a class="card-like text-center mt-5" href="#"><img class="img-fluid"
-                                        src="images/corazon.png" alt=""> 225</a>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col">
-                    <div class="card cards-rec">
-                        <h1 class="card-title">Pastel de fresa</h1>
-                        <a href="recetaInfo.html"><img class="card-img-top" src="images/fresa.png"
-                                alt="Pastel de fresa"></a>
-                        <div class="card-body red-space">
-                            <p class="card-text card-body-text text-center">Detalles:</p>
-                            <p class="card-text card-body-text text-center">
-                                Dificultad: Avanzado <br>
-                                Categoría: Postre <br>
-                                Porciones: 8 <br>
-                            </p>
-                            <img class="img-fluid line" src="images/linea.png" alt="division">
-                            <ul class="text-center">
-                                <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
-                                <a class="card-like text-center mt-5" href="#"><img class="img-fluid"
-                                        src="images/corazon.png" alt=""> 225</a>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col">
-                    <div class="card cards-rec">
-                        <h1 class="card-title">Sopa azteca</h1>
-                        <a href="recetaInfo.html"><img class="card-img-top" src="images/azteca.png"
-                                alt="sopa azteca"></a>
-                        <div class="card-body red-space">
-                            <p class="card-text card-body-text text-center">Detalles:</p>
-                            <p class="card-text card-body-text text-center">
-                                Dificultad: Intermedio <br>
-                                Categoría: Sopa <br>
-                                Porciones: 4<br>
-                            </p>
-                            <img class="img-fluid line" src="images/linea.png" alt="division">
-                            <ul class="text-center">
-                                <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
-                                <a class="card-like text-center mt-5" href="#"><img class="img-fluid"
-                                        src="images/corazon.png" alt=""> 225</a>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="row">
-                <div class="col">
-                    <div class="card cards-rec">
-                        <h1 class="card-title">Arrollados de queso y espinaca</h1>
-                        <a href="recetaInfo.html"><img class="card-img-top" src="images/rollos.png" alt="Arrollado"></a>
-                        <div class="card-body red-space">
-                            <p class="card-text card-body-text text-center">Detalles:</p>
-                            <p class="card-text card-body-text text-center">
-                                Dificultad: Fácil <br>
-                                Categoría: Entrada <br>
-                                Prisones: 10 <br>
-                            </p>
-                            <img class="img-fluid line" src="images/linea.png" alt="division">
-                            <ul class="text-center">
-                                <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
-                                <a class="card-like text-center mt-5" href="#"><img class="img-fluid"
-                                        src="images/corazon.png" alt=""> 225</a>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col">
-                    <div class="card cards-rec">
-                        <h1 class="card-title">Pastel de fresa</h1>
-                        <a href="recetaInfo.html"><img class="card-img-top" src="images/fresa.png"
-                                alt="Pastel de fresa"></a>
-                        <div class="card-body red-space">
-                            <p class="card-text card-body-text text-center">Detalles:</p>
-                            <p class="card-text card-body-text text-center">
-                                Dificultad: Avanzado <br>
-                                Categoría: Postre <br>
-                                Porciones: 8 <br>
-                            </p>
-                            <img class="img-fluid line" src="images/linea.png" alt="division">
-                            <ul class="text-center">
-                                <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
-                                <a class="card-like text-center mt-5" href="#"><img class="img-fluid"
-                                        src="images/corazon.png" alt=""> 225</a>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col">
-                    <div class="card cards-rec">
-                        <h1 class="card-title">Sopa azteca</h1>
-                        <a href="recetaInfo.html"><img class="card-img-top" src="images/azteca.png"
-                                alt="sopa azteca"></a>
-                        <div class="card-body red-space">
-                            <p class="card-text card-body-text text-center">Detalles:</p>
-                            <p class="card-text card-body-text text-center">
-                                Dificultad: Intermedio <br>
-                                Categoría: Sopa <br>
-                                Porciones: 4<br>
-                            </p>
-                            <img class="img-fluid line" src="images/linea.png" alt="division">
-                            <ul class="text-center">
-                                <a class="card-body-text text-center mb-lg-5" href="#">Agregar</a><br>
-                                <a class="card-like text-center mt-5" href="#"><img class="img-fluid"
-                                        src="images/corazon.png" alt=""> 225</a>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+              
+      <recipe-info
+      v-if="recipe.id !== null"
+      :name="recipe.name"
+      :likes="recipe.likes"
+      :image="recipe.image"
+      :level="recipe.level"
+      :category="recipe.category"
+      :readyIn="recipe.readyIn"
+      :cookTime="recipe.cookTime"
+      :servings="recipe.servings"
+      :occasion="recipe.occasion"
+      :summary="recipe.summary"
+      :ingredients="recipe.ingredients"
+      :instructions="recipe.instructions"
+    ></recipe-info>
 
 
 
@@ -335,18 +80,32 @@
     crossorigin="anonymous"></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-<!-- VueJS -->
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-<!-- main script -->
-<script src="./js/component.js"></script>
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
-<script src="./js/RecipeCard.js"></script>
+    <!-- AXIOS API JS-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-<script src="./js/Navbar.js"></script>
+  <!-- VueJS -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-<script>
+  <!-- main script -->
+  <script src="./js/component.js"></script>
+
+  <script src="./js/RecipeCard.js"></script>
+
+  
+  <script src="./js/RecipeInfo.js"></script>
+
+  <script src="./js/Navbar.js"></script>
+
+
+  <script>
     const mountedApp = app.mount("#app");
-</script>
+  </script>
+
 
 </html>
