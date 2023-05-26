@@ -18,8 +18,8 @@ app.component('recipe-info', {
         },
 
         level: {
-            type: String,
-            default: "default level"
+            type: Number,
+            default: 1
         },
 
         category: {
@@ -27,7 +27,7 @@ app.component('recipe-info', {
             default: "default category"
         },
 
-        readyInMinutes: {
+        totalMinutes: {
             type: Number,
             default: 1
         },
@@ -38,8 +38,8 @@ app.component('recipe-info', {
         },
 
         servings: {
-            type: String,
-            default: "default servings"
+            type: Number,
+            default: 1
         },
 
         occasion: {
@@ -102,7 +102,7 @@ app.component('recipe-info', {
             <tbody>
                 <tr>
                     <td class="text-center regular-text td-tabla">Level: {{level}}</td>
-                    <td class="text-center regular-text td-tabla">Total Time: {{ readyInMinutes}} </td>
+                    <td class="text-center regular-text td-tabla">Total Time: {{ totalMinutes}} </td>
                     <td class="text-center regular-text td-tabla">{{servings}} servings</td>
                 </tr>
                 <tr>

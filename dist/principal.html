@@ -45,10 +45,11 @@
             :category="item.category" 
             :servings="item.servings" 
             :likes="item.likes"
-            :readyInMinutes="item.sreadyInMinutes" 
+            :readyInMinutes="item.readyInMinutes" 
             :preparationMinutes="item.preparationMinutes"
             :index="index"
             v-on:recipedetails="onClickRecipeDetails"
+            v-on:recipelike="onClickLikeRecipe"
           ></recipe-card>
         </div>
       </div>
@@ -69,6 +70,7 @@
       :summary="recipe.summary"
       :ingredients="recipe.ingredients"
       :instructions="recipe.instructions"
+      
     ></recipe-info>
       
 

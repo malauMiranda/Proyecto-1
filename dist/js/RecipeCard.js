@@ -21,8 +21,8 @@ app.component('recipe-card', {
         },
 
         servings:{
-            type: String,
-            default: "default servings"
+            type: Number,
+            default: 1
         },
 
         likes:{
@@ -50,7 +50,13 @@ methods: {
 
     onClickViewRecipe(){
         //console.log("VIEW");
-        this.$emit('recipedetails', this.index);
+        this.$emit('recipedetails', this.index, this.readyInMinutes) ;
+
+    },
+
+    onClickLikeRecipe(){
+        //console.log("VIEW");
+        this.$emit('recipelike', this.index);
 
     },
 },
@@ -72,7 +78,7 @@ methods: {
       <img class="img-fluid line" src="images/linea.png" alt="division">
       <ul class="text-center">
       <button v-on:click="onClickViewRecipe" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn card-body-text text-center">View</button><br>
-        <button  class="btn card-body-text text-center" href="perfil.html">Add</button><br>
+        <button v-on:click="onClickLikeRecipe" class="btn card-body-text text-center">Add</button><br>
         <a class="card-like text-center mt-5" href="#"><img class="img-fluid" src="images/corazon.png"
             alt="">{{likes}}</a>
       </ul>
