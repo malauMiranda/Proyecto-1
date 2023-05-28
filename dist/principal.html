@@ -45,11 +45,9 @@
             :category="item.category" 
             :servings="item.servings" 
             :likes="item.likes"
-            :readyInMinutes="item.readyInMinutes" 
-            :preparationMinutes="item.preparationMinutes"
             :index="index"
             v-on:recipedetails="onClickRecipeDetails"
-            v-on:recipelike="onClickLikeRecipe"
+            v-on:recipelike="onClickLike"
           ></recipe-card>
         </div>
       </div>
@@ -63,8 +61,8 @@
       :image="recipe.image"
       :level="recipe.level"
       :category="recipe.category"
-      :readyInMinutes="recipe.readyInMinutes"
-      :preparationMinutes="recipe.preparationMinutes"
+      :readyInMinutes="45"
+      :preparationMinutes="45"
       :servings="recipe.servings"
       :occasion="recipe.occasion"
       :summary="recipe.summary"
@@ -144,12 +142,35 @@
             :likes="item.likes"
             :index="index"
             v-on:recipedetails="onClickRecipeSearch"
+            v-on:recipelike="onClickLike"
           ></recipe-card>
         </div>
       </div>
 
     </section>
 
+    <section class="container-fluid">
+
+      <h1 class="subtitle text-center mt-5 mb-5">Your collection of liked recipes</h1>
+
+
+      <div class="row">
+        <div v-for="(item, index) in likedRecipes" class="col card-center"> 
+          <recipe-card 
+            :name="item.name" 
+            :image="item.image" 
+            :level="item.level" 
+            :category="item.category" 
+            :servings="item.servings" 
+            :likes="item.likes"
+            :index="index"
+            v-on:recipedetails="onClickRecipeDetails"
+            v-on:recipelike="onClickLike"
+          ></recipe-card>
+        </div>
+      </div>
+
+      </section>
 
 
     <footer class="red-space">
@@ -160,6 +181,24 @@
 
   </section>
 </body>
+
+
+
+<script>
+  // Supongamos que tienes un array likedRecipes que deseas almacenar en el localStorage
+  const likedRecipes =[{"comida": "foto"}, {"comida2":"foto2"}]
+
+
+  // Almacena el array likedRecipes en el localStorage como una cadena JSON
+  localStorage.setItem('likedRecipes', JSON.stringify(likedRecipes));
+  
+  // Redirige a la página 2
+  //window.location.href = 'perfil.html';
+
+  localStorage.setItem('likedRecipes', JSON.stringify(likedRecipes));
+</script>
+
+
 
   <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

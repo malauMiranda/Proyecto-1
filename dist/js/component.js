@@ -10,9 +10,11 @@ const app = Vue.createApp({
   },
 
   mounted: function () {
+
+
     axios({
       method: 'get',
-      url: 'https://api.spoonacular.com/recipes/random?apiKey=aad664e7aedf41e290ddb6c82be41ec1&number=10'
+      url: 'https://api.spoonacular.com/recipes/random?apiKey=759171a7df8b419282cb76f489b6bbfa&number=10'
     })
       .then((response) => {
         let items = response.data.recipes;
@@ -48,13 +50,13 @@ const app = Vue.createApp({
     },
 
 
-    //CARDS ON HOME
+                                                              //CARDS ON HOME
     //get information for the cards
     getCardDetails() {
       const requests = this.recipes.map(recipe => {
         return axios({
           method: 'get',
-          url: 'https://api.spoonacular.com/recipes/' + recipe.id + '/information?includeNutrition=false&apiKey=aad664e7aedf41e290ddb6c82be41ec1'
+          url: 'https://api.spoonacular.com/recipes/' + recipe.id + '/information?includeNutrition=false&apiKey=759171a7df8b419282cb76f489b6bbfa'
         });
       });
 
@@ -69,19 +71,21 @@ const app = Vue.createApp({
             this.recipes[index].preparationMinutes = data.readyInMinutes;
           });
 
-          this.changeCategory();
-          this.changeLevel();
+          this.changeCategoryCard();
+          this.changeCategoryInfo();
+          this.changeLevelCard();
+          this.changeLevelInfo();
         })
         .catch(error => console.log(error));
     },
 
 
 
-      // Change the name of the category
-      changeCategory() {
+      // Change the name of the category in the card
+      changeCategoryCard() {
         this.recipes.forEach(recipe => {
           const category = recipe.category;
-      
+  
           if (category === 'bread' || category === 'breakfast' || category === 'morning meal') {
             recipe.category = 'Breakfast';
           } else if (category === 'beverage' || category === 'drink') {
@@ -98,57 +102,61 @@ const app = Vue.createApp({
             recipe.category = 'Other';
           }
         });
-      
-        const categoryInfo = this.recipe.category;
-      
-        if (categoryInfo === 'bread' || categoryInfo === 'breakfast' || categoryInfo === 'morning meal') {
+      },
+  
+       // Change the name of the category in recipe-info
+      changeCategoryInfo() {
+        const category = this.recipe.category;
+  
+        if (category === 'bread' || category === 'breakfast' || category === 'morning meal') {
           this.recipe.category = 'Breakfast';
-        } else if (categoryInfo === 'beverage' || categoryInfo === 'drink') {
+        } else if (category === 'beverage' || category === 'drink') {
           this.recipe.category = 'Drinks';
-        } else if (categoryInfo === 'side dish' || categoryInfo === 'appetizer' || categoryInfo === 'salad' || categoryInfo === 'sauce' || categoryInfo === 'marinade' || categoryInfo === 'fingerfood' || categoryInfo === 'snack' || categoryInfo === 'antipasti') {
+        } else if (category === 'side dish' || category === 'appetizer' || category === 'salad' || category === 'sauce' || category === 'marinade' || category === 'fingerfood' || category === 'snack' || category === 'antipasti') {
           this.recipe.category = 'Appetizers';
-        } else if (categoryInfo === 'main course' || categoryInfo === 'lunch') {
+        } else if (category === 'main course' || category === 'lunch') {
           this.recipe.category = 'Lunch';
-        } else if (categoryInfo === 'dessert') {
+        } else if (category === 'dessert') {
           this.recipe.category = 'Dessert';
-        } else if (categoryInfo === 'soup') {
+        } else if (category === 'soup') {
           this.recipe.category = 'Soups';
         } else {
           this.recipe.category = 'Other';
         }
       },
+  
       
-
-
-
-    //change the level 
-    changeLevel() {
-      this.recipes.forEach(recipe => {
-        const level = recipe.level;
-    
+      // Change the name of the level in the card
+      changeLevelCard() {
+        this.recipes.forEach(recipe => {
+          const level = recipe.level;
+  
+          if (level >= 0 && level <= 20) {
+            recipe.level = 'Easy';
+          } else if (level >= 21 && level <= 70) {
+            recipe.level = 'Intermediate';
+          } else if (level >= 71) {
+            recipe.level = 'Advanced';
+          } else {
+            recipe.level = 'Default level';
+          }
+        });
+      },
+  
+       // Change the name of the level in recipe-info
+      changeLevelInfo() {
+        const level = this.recipe.level;
+  
         if (level >= 0 && level <= 20) {
-          recipe.level = 'Easy';
+          this.recipe.level = 'Easy';
         } else if (level >= 21 && level <= 70) {
-          recipe.level = 'Intermediate';
+          this.recipe.level = 'Intermediate';
         } else if (level >= 71) {
-          recipe.level = 'Advanced';
+          this.recipe.level = 'Advanced';
         } else {
-          recipe.level = 'Default level';
+          this.recipe.level = 'Default level';
         }
-      });
-    
-      const levelInfo = this.recipe.level;
-    
-      if (levelInfo >= 0 && levelInfo <= 20) {
-        this.recipe.level = 'Easy';
-      } else if (levelInfo >= 21 && levelInfo <= 70) {
-        this.recipe.level = 'Intermediate';
-      } else if (levelInfo >= 71) {
-        this.recipe.level = 'Advanced';
-      } else {
-        this.recipe.level = 'Default level';
-      }
-    },
+      },
   
 
     //open recipes information
@@ -158,7 +166,7 @@ const app = Vue.createApp({
 
       axios({
         method: 'get',
-        url: 'https://api.spoonacular.com/recipes/' + recipeId + '/information?includeNutrition=false&apiKey=aad664e7aedf41e290ddb6c82be41ec1'
+        url: 'https://api.spoonacular.com/recipes/' + recipeId + '/information?includeNutrition=false&apiKey=759171a7df8b419282cb76f489b6bbfa'
       })
         .then(response => {
           let item = response.data;
@@ -181,9 +189,8 @@ const app = Vue.createApp({
           }
 
           this.recipe.ingredients = ingredientsList;
-
-          this.changeCategory();
-          this.changeLevel();
+          this.changeCategoryInfo();
+          this.changeLevelInfo();
         })
         .catch(error => console.log(error));
     },
@@ -192,7 +199,7 @@ const app = Vue.createApp({
 
 
 
-//SEARCH ON HOME
+                                                          //SEARCH ON HOME
 
 //get the name from html and search the name
 searchRecipe() {
@@ -200,12 +207,13 @@ searchRecipe() {
 
   axios({
     method: 'get',
-    url: `https://api.spoonacular.com/recipes/complexSearch?query=${searchTerm}&apiKey=aad664e7aedf41e290ddb6c82be41ec1`
+    url: `https://api.spoonacular.com/recipes/complexSearch?query=${searchTerm}&apiKey=759171a7df8b419282cb76f489b6bbfa`
   })
     .then(response => {
       let items = response.data.results;
       console.log(items);
 
+      
       if (items.length > 0) {
         items.forEach(element => {
           let category = '';
@@ -238,7 +246,7 @@ searchRecipe() {
     const requests = this.searchRecipes.map(recipe => {
       return axios({
         method: 'get',
-        url: `https://api.spoonacular.com/recipes/${recipe.id}/information?includeNutrition=false&apiKey=aad664e7aedf41e290ddb6c82be41ec1`
+        url: `https://api.spoonacular.com/recipes/${recipe.id}/information?includeNutrition=false&apiKey=759171a7df8b419282cb76f489b6bbfa`
       });
     });
   
@@ -253,95 +261,97 @@ searchRecipe() {
           this.searchRecipes[index].likes = data.aggregateLikes;
         });
 
-        this.changeCategorySearch();
-        this.changeLevelSearch();
+        this.changeCategoryInfoSearch();
+        this.changeLevelInfoSearch();
+        this.changeLevelCardSearch();
+        this.changeCategoryCardSearch();
 
       })
       .catch(error => console.log(error));
   },
 
 
+  changeCategoryCardSearch() {
+    this.searchRecipes.forEach(recipe => {
+      const category = recipe.category;
 
-//change the categorry on card
-changeCategorySearch() {
-  this.searchRecipes.forEach(recipe => {
-    const category = recipe.category;
+      if (category === 'bread' || category === 'breakfast' || category === 'morning meal') {
+        recipe.category = 'Breakfast';
+      } else if (category === 'beverage' || category === 'drink') {
+        recipe.category = 'Drinks';
+      } else if (category === 'side dish' || category === 'appetizer' || category === 'salad' || category === 'sauce' || category === 'marinade' || category === 'fingerfood' || category === 'snack' || category === 'antipasti') {
+        recipe.category = 'Appetizers';
+      } else if (category === 'main course' || category === 'lunch') {
+        recipe.category = 'Lunch';
+      } else if (category === 'dessert') {
+        recipe.category = 'Dessert';
+      } else if (category === 'soup') {
+        recipe.category = 'Soups';
+      } else {
+        recipe.category = 'Other';
+      }
+    });
+  },
+
+  changeCategoryInfoSearch() {
+    const category = this.recipe.category;
 
     if (category === 'bread' || category === 'breakfast' || category === 'morning meal') {
-      recipe.category = 'Breakfast';
+      this.recipe.category = 'Breakfast';
     } else if (category === 'beverage' || category === 'drink') {
-      recipe.category = 'Drinks';
+      this.recipe.category = 'Drinks';
     } else if (category === 'side dish' || category === 'appetizer' || category === 'salad' || category === 'sauce' || category === 'marinade' || category === 'fingerfood' || category === 'snack' || category === 'antipasti') {
-      recipe.category = 'Appetizers';
+      this.recipe.category = 'Appetizers';
     } else if (category === 'main course' || category === 'lunch') {
-      recipe.category = 'Lunch';
+      this.recipe.category = 'Lunch';
     } else if (category === 'dessert') {
-      recipe.category = 'Dessert';
+      this.recipe.category = 'Dessert';
     } else if (category === 'soup') {
-      recipe.category = 'Soups';
+      this.recipe.category = 'Soups';
     } else {
-      recipe.category = 'Other';
+      this.recipe.category = 'Other';
     }
-  });
+  },
 
-  const categoryInfo = this.recipe.category;
+  changeLevelCardSearch() {
+    this.searchRecipes.forEach(recipe => {
+      const level = recipe.level;
 
-  if (categoryInfo === 'bread' || categoryInfo === 'breakfast' || categoryInfo === 'morning meal') {
-    this.recipe.category = 'Breakfast';
-  } else if (categoryInfo === 'beverage' || categoryInfo === 'drink') {
-    this.recipe.category = 'Drinks';
-  } else if (categoryInfo === 'side dish' || categoryInfo === 'appetizer' || categoryInfo === 'salad' || categoryInfo === 'sauce' || categoryInfo === 'marinade' || categoryInfo === 'fingerfood' || categoryInfo === 'snack' || categoryInfo === 'antipasti') {
-    this.recipe.category = 'Appetizers';
-  } else if (categoryInfo === 'main course' || categoryInfo === 'lunch') {
-    this.recipe.category = 'Lunch';
-  } else if (categoryInfo === 'dessert') {
-    this.recipe.category = 'Dessert';
-  } else if (categoryInfo === 'soup') {
-    this.recipe.category = 'Soups';
-  } else {
-    this.recipe.category = 'Other';
-  }
-},
+      if (level >= 0 && level <= 20) {
+        recipe.level = 'Easy';
+      } else if (level >= 21 && level <= 70) {
+        recipe.level = 'Intermediate';
+      } else if (level >= 71) {
+        recipe.level = 'Advanced';
+      } else {
+        recipe.level = 'Default level';
+      }
+    });
+  },
 
-
-
-//change the level 
-changeLevelSearch() {
-  this.searchRecipes.forEach(recipe => {
-    const level = recipe.level;
+  changeLevelInfoSearch() {
+    const level = this.recipe.level;
 
     if (level >= 0 && level <= 20) {
-      recipe.level = 'Easy';
+      this.recipe.level = 'Easy';
     } else if (level >= 21 && level <= 70) {
-      recipe.level = 'Intermediate';
+      this.recipe.level = 'Intermediate';
     } else if (level >= 71) {
-      recipe.level = 'Advanced';
+      this.recipe.level = 'Advanced';
     } else {
-      recipe.level = 'Default level';
+      this.recipe.level = 'Default level';
     }
-  });
+  },
 
-  const levelInfo = this.recipe.level;
 
-  if (levelInfo >= 0 && levelInfo <= 20) {
-    this.recipe.level = 'Easy';
-  } else if (levelInfo >= 21 && levelInfo <= 70) {
-    this.recipe.level = 'Intermediate';
-  } else if (levelInfo >= 71) {
-    this.recipe.level = 'Advanced';
-  } else {
-    this.recipe.level = 'Default level';
-  }
-},
-
-    //open recipes information
+    //open recipes information for search
     onClickRecipeSearch(index) {
       const recipe = this.searchRecipes[index];
       const recipeId = recipe.id;
 
       axios({
         method: 'get',
-        url: 'https://api.spoonacular.com/recipes/' + recipeId + '/information?includeNutrition=false&apiKey=aad664e7aedf41e290ddb6c82be41ec1'
+        url: 'https://api.spoonacular.com/recipes/' + recipeId + '/information?includeNutrition=false&apiKey=759171a7df8b419282cb76f489b6bbfa'
       })
         .then(response => {
           let item = response.data;
@@ -365,8 +375,8 @@ changeLevelSearch() {
 
           this.recipe.ingredients = ingredientsList;
 
-          this.changeCategorySearch();
-          this.changeLevelSearch();
+          this.changeCategoryInfoSearch();
+          this.changeLevelInfoSearch();
         })
         .catch(error => console.log(error));
     },
@@ -375,19 +385,78 @@ changeLevelSearch() {
 
 
 
+                                                                 //CARDS ON MY RECIPES
+
+//get the id from add
+
+onClickLike(index) {
+  console.log("ID:" + index);
+
+  axios({
+    method: 'get',
+    url: `https://api.spoonacular.com/recipes/${index}/information?includeNutrition=false&apiKey=759171a7df8b419282cb76f489b6bbfa`
+  })
+    .then((response) => {
+      const data = response.data;
+
+      let category = '';
+      if (data.dishTypes && data.dishTypes.length > 0) {
+        category = data.dishTypes[0];
+      }
+
+      this.likedRecipes.push({
+        id: data.id,
+        name: data.title,
+        image: data.image,
+        level: data.healthScore,
+        category: category,
+        servings: data.servings,
+        likes: data.aggregateLikes,
+        totalMinutes: data.readyInMinutes,
+        preparationMinutes: data.readyInMinutes,
+      });
+
+      console.log(this.likedRecipes[0]);
+
+    })
+    .catch(error => console.log(error));
+},
+/*
+    //open recipes information for search
+    onClickRecipeSearch(index) {
+      const recipe = this.searchRecipes[index];
+      const recipeId = recipe.id;
+
+      axios({
+        method: 'get',
+        url: 'https://api.spoonacular.com/recipes/' + recipeId + '/information?includeNutrition=false&apiKey=759171a7df8b419282cb76f489b6bbfa'
+      })
+        .then(response => {
+          let item = response.data;
+          this.recipeId = index;
+          this.recipe.image = item.image;
+          this.recipe.name = item.title;
+          this.recipe.category = item.dishTypes[0];
+          this.recipe.totalMinutes = item.readyInMinutes;
+          this.recipe.preparationMinutes = item.preparationMinutes;
+          this.recipe.level = item.healthScore;
+          this.recipe.likes = item.aggregateLikes;
+          this.recipe.servings = item.servings;
+          this.recipe.occasion = item.occasions[0];
+          this.recipe.summary = item.summary;
+          this.recipe.instructions = item.instructions;
+
+          let ingredientsList = "";
+          for (let i = 0; i < item.extendedIngredients.length; i++) {
+            ingredientsList += item.extendedIngredients[i].original + "\n";
+          }
+
+          this.recipe.ingredients = ingredientsList;
 
 
-
-
-    onClickLikeRecipe(index) {
-      console.log("ID:" + index);
-    },
-
-
-
-
-
-
+        })
+        .catch(error => console.log(error));
+    },*/
 
 
 
