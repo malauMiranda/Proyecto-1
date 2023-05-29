@@ -29,7 +29,7 @@
       <h1 class="sub-titles text-center mt-5 mb-5">My liked recipes</h1>
 
       <div id="likedRecipes" class="row">
-        <div v-for="(item, index) in recipes" class="col card-center">
+        <div v-for="(item, index) in likedRecipes" class="col card-center">
           <recipe-card 
             :name="item.name" 
             :image="item.image" 
@@ -37,8 +37,8 @@
             :category="item.category" 
             :servings="item.servings" 
             :likes="item.likes"
-            :index="index"
-            v-on:recipedetails="onClickRecipeDetails"
+            :index="item.id"
+            v-on:recipedetails="onClickLikeInfoProfile"
             v-on:recipelike="onClickLike"
           ></recipe-card>
         </div>
@@ -51,7 +51,7 @@
         :image="recipe.image"
         :level="recipe.level"
         :category="recipe.category"
-        :readyInMinutes="45"
+        :total="recipe.total"
         :preparationMinutes="45"
         :servings="recipe.servings"
         :occasion="recipe.occasion"
@@ -69,14 +69,6 @@
   </footer>
 </body>
 
-
-<script>
-  const storedLikedRecipes = localStorage.getItem('likedRecipes');
-  const likedRecipes = storedLikedRecipes ? JSON.parse(storedLikedRecipes) : [];
-  
-  // A partir de aquí, puedes utilizar el array likedRecipes en tu página
-  console.log(likedRecipes);
-</script>
 
 
   <!-- Bootstrap -->
