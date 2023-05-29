@@ -6,7 +6,7 @@ const app = Vue.createApp({
       recipe: {},
       likedRecipes: [],
       searchRecipes: [],
-      apiKey:"7655a23dc96b491fb47e0a6c3806c590",
+      apiKey:"450147b52a364ff3a4c80ee4dea6b72f",
     };
   },
 
@@ -32,7 +32,7 @@ const app = Vue.createApp({
               servings: element.servings,
               likes: element.aggregateLikes,
               totalMinutes: element.readyInMinutes,
-              preparationMinutes: element.readyInMinutes,
+              preparation: element.readyInMinutes,
             });
           });
         }
@@ -70,7 +70,7 @@ const app = Vue.createApp({
             this.recipes[index].servings = data.servings;
             this.recipes[index].likes = data.aggregateLikes;
             this.recipes[index].readyInMinutes = data.readyInMinutes;
-            this.recipes[index].preparationMinutes = data.readyInMinutes;
+            this.recipes[index].preparation = data.readyInMinutes;
           });
 
           this.changeCategoryCard();
@@ -177,7 +177,7 @@ const app = Vue.createApp({
           this.recipe.name = item.title;
           this.recipe.category = item.dishTypes[0];
           this.recipe.total = item.readyInMinutes;
-          this.recipe.preparationMinutes = item.preparationMinutes;
+          this.recipe.preparation = item.readyInMinutes;
           this.recipe.level = item.healthScore;
           this.recipe.likes = item.aggregateLikes;
           this.recipe.servings = item.servings;
@@ -234,8 +234,8 @@ searchRecipe() {
             category: category,
             servings: element.servings,
             likes: element.aggregateLikes,
-            totalMinutes: element.readyInMinutes,
-            preparationMinutes: element.readyInMinutes,
+            total: element.readyInMinutes,
+            preparation: element.readyInMinutes,
           });
         });
 
@@ -364,8 +364,8 @@ searchRecipe() {
           this.recipe.image = item.image;
           this.recipe.name = item.title;
           this.recipe.category = item.dishTypes[0];
-          this.recipe.totalMinutes = item.readyInMinutes;
-          this.recipe.preparationMinutes = item.preparationMinutes;
+          this.recipe.total = item.readyInMinutes;
+          this.recipe.preparation = item.readyInMinutes;
           this.recipe.level = item.healthScore;
           this.recipe.likes = item.aggregateLikes;
           this.recipe.servings = item.servings;
@@ -420,8 +420,8 @@ onClickLike(index) {
         category: category,
         servings: data.servings,
         likes: data.aggregateLikes+1,
-        totalMinutes: data.readyInMinutes,
-        preparationMinutes: data.readyInMinutes,
+        total: data.readyInMinutes,
+        preparation: data.readyInMinutes,
       });
 
       localStorage.setItem('likedRecipes', JSON.stringify(this.likedRecipes));
@@ -450,8 +450,8 @@ onClickLike(index) {
             this.recipes[index].level = data.healthScore;
             this.recipes[index].servings = data.servings;
             this.recipes[index].likes = data.aggregateLikes +1;
-            this.recipes[index].readyInMinutes = data.readyInMinutes;
-            this.recipes[index].preparationMinutes = data.readyInMinutes;
+            this.recipes[index].total = data.readyInMinutes;
+            this.recipes[index].preparation = data.readyInMinutes;
           });
 
 
@@ -487,8 +487,8 @@ onClickLike(index) {
         category: category,
         servings: data.servings,
         likes: data.aggregateLikes+1,
-        totalMinutes: data.readyInMinutes,
-        preparationMinutes: data.readyInMinutes,
+        total: data.readyInMinutes,
+        preparation: data.readyInMinutes,
       });
 
       localStorage.setItem('likedRecipes', JSON.stringify(this.likedRecipes));
@@ -517,8 +517,8 @@ onClickLike(index) {
           this.recipe.image = item.image;
           this.recipe.name = item.title;
           this.recipe.category = item.dishTypes[0];
-          this.recipe.totalMinutes = item.readyInMinutes;
-          this.recipe.preparationMinutes = item.preparationMinutes;
+          this.recipe.total = item.readyInMinutes;
+          this.recipe.preparation = item.readyInMinutes;
           this.recipe.level = item.healthScore;
           this.recipe.likes = item.aggregateLikes+1;
           this.recipe.servings = item.servings;
@@ -552,8 +552,8 @@ onClickLike(index) {
           this.recipe.image = item.image;
           this.recipe.name = item.title;
           this.recipe.category = item.dishTypes[0];
-          this.recipe.totalMinutes = item.readyInMinutes;
-          this.recipe.preparationMinutes = item.preparationMinutes;
+          this.recipe.total = item.readyInMinutes;
+          this.recipe.preparation = item.readyInMinutes;
           this.recipe.level = item.healthScore;
           this.recipe.likes = item.aggregateLikes+1;
           this.recipe.servings = item.servings;

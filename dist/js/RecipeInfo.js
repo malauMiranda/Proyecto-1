@@ -29,12 +29,12 @@ app.component('recipe-info', {
 
         total: {
             type: Number,
-            default: 77
+            default: 60
         },
 
-        preparationMinutes: {
+        preparation: {
             type: Number,
-            default: 99
+            default: 25
         },
 
         servings: {
@@ -107,7 +107,7 @@ app.component('recipe-info', {
                 </tr>
                 <tr>
                     <td class="text-center regular-text td-tabla">Category: {{category}}</td>
-                    <td class="text-center regular-text td-tabla">Cooking time: {{preparationMinutes}}</td>
+                    <td class="text-center regular-text td-tabla">Cooking time: {{preparation}}</td>
                     <td class="text-center regular-text td-tabla">Occasion: {{occasion}}</td>
                 </tr>
 

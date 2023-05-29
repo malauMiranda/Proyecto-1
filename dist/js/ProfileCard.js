@@ -40,18 +40,18 @@ app.component('profile-card', {
 
               <div class="col">
                 
-                <img v-bind:src="image" class="img-user text-center round-img" alt="user">
+                <img v-bind:src="image" class="img-user text-center round-img m-3" alt="user">
 
               </div>
 
 
               <div class="col">
                 <div class="mt-lg-5">
-                  <h1 class="text-user">Usuario:{{user}}</h1>
-                  <h1 class="text-user">Nombre completo:{{name}}</h1>
-                  <h1 class="text-user">Correo electrónico: {{email}}</h1>
+                  <h1 class="text-user">User: {{user}}</h1>
+                  <h1 class="text-user">Name: {{name}}</h1>
+                  <h1 class="text-user">E-mail: {{email}}</h1>
 
-                  <a href="editarPerfil.html" class="btn white-user-btn ms-lg-3 mt-lg-2">Editar</a>
+                  <a href="editarPerfil.html" class="btn white-user-btn ms-3 mt-5">Edit</a>
                 </div>
 
               </div>
