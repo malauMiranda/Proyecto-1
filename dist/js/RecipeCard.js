@@ -20,9 +20,9 @@ app.component('recipe-card', {
             default: "default category"
         },
 
-        servings:{
-            type: Number,
-            default: 1
+        occasion:{
+            type: String,
+            default: "Default occasion"
         },
 
         likes:{
@@ -65,7 +65,7 @@ methods: {
       <p class="card-text card-body-text text-center">Details:</p>
       <p class="card-text card-body-text text-center">Level: {{level}} </p>
       <p class="card-text card-body-text text-center">Category: {{category}}</p>
-      <p class="card-text card-body-text text-center">Servings: {{servings}} </p>
+      <p class="card-text card-body-text text-center">Occasion: {{occasion}} </p>
       <img class="img-fluid line" src="images/linea.png" alt="division">
       <ul class="text-center">
       <button v-on:click="onClickViewRecipe" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn card-body-text text-center">View</button><br>

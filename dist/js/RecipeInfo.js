@@ -37,7 +37,7 @@ app.component('recipe-info', {
             default: 25
         },
 
-        servings: {
+        portions: {
             type: Number,
             default: 1
         },
@@ -103,7 +103,7 @@ app.component('recipe-info', {
                 <tr>
                     <td class="text-center regular-text td-tabla">Level: {{level}}</td>
                     <td class="text-center regular-text td-tabla">Total Time: {{ total}} </td>
-                    <td class="text-center regular-text td-tabla">{{servings}} servings</td>
+                    <td class="text-center regular-text td-tabla">{{portions}} portions</td>
                 </tr>
                 <tr>
                     <td class="text-center regular-text td-tabla">Category: {{category}}</td>

@@ -27,37 +27,39 @@
 
 
             <div class="row">
-                <div v-for="(item, index) in getLimitedRecipes(10)" class="col card-center"> 
-                  <recipe-card 
-                    :name="item.name" 
-                    :image="item.image" 
-                    :level="item.level" 
-                    :category="item.category" 
-                    :servings="item.servings" 
-                    :likes="item.likes"
-                    :index="index"
-                    v-on:recipedetails="onClickRecipeDetails"
-                  ></recipe-card>
-                </div>
+              <div v-for="(item, index) in topRecipes" class="col card-center"> 
+                <recipe-card 
+                  :name="item.name" 
+                  :image="item.image" 
+                  :level="item.level" 
+                  :category="item.category" 
+                  :occasion="item.occasion" 
+                  :likes="item.likes"
+                  :index="index"
+                  v-on:recipedetails="onClickRecipeDetails"
+                  v-on:recipelike="onClickLike"
+                ></recipe-card>
               </div>
-
-              
-      <recipe-info
-      v-if="recipe.id !== null"
-      :name="recipe.name"
-      :likes="recipe.likes"
-      :image="recipe.image"
-      :level="recipe.level"
-      :category="recipe.category"
-      :readyInMinutes="recipe.readyIn"
-      :preparationMinutes="recipe.cookTime"
-      :servings="recipe.servings"
-      :occasion="recipe.occasion"
-      :summary="recipe.summary"
-      :ingredients="recipe.ingredients"
-      :instructions="recipe.instructions"
-    ></recipe-info>
-
+            </div>
+      
+            
+      
+            <recipe-info
+            v-if="recipe.id !== null"
+            :name="recipe.name"
+            :likes="recipe.likes"
+            :image="recipe.image"
+            :level="recipe.level"
+            :category="recipe.category"
+            :total="recipe.total"
+            :preparationMinutes="45"
+            :portions="recipe.portions"
+            :occasion="recipe.occasion"
+            :summary="recipe.summary"
+            :ingredients="recipe.ingredients"
+            :instructions="recipe.instructions"
+            
+          ></recipe-info>
 
 
 

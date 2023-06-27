@@ -27,13 +27,13 @@
 
 
             <div class="row">
-              <div v-for="(item, index) in getLimitedRecipes(10)" class="col card-center"> 
+              <div v-for="(item, index) in allRecipes" class="col card-center"> 
                 <recipe-card 
                   :name="item.name" 
                   :image="item.image" 
                   :level="item.level" 
                   :category="item.category" 
-                  :servings="item.servings" 
+                  :occasion="item.occasion" 
                   :likes="item.likes"
                   :index="index"
                   v-on:recipedetails="onClickRecipeDetails"
@@ -41,25 +41,22 @@
                 ></recipe-card>
               </div>
             </div>
-      
             
-      
             <recipe-info
-            v-if="recipe.id !== null"
-            :name="recipe.name"
-            :likes="recipe.likes"
-            :image="recipe.image"
-            :level="recipe.level"
-            :category="recipe.category"
-            :total="recipe.total"
-            :preparationMinutes="45"
-            :servings="recipe.servings"
-            :occasion="recipe.occasion"
-            :summary="recipe.summary"
-            :ingredients="recipe.ingredients"
-            :instructions="recipe.instructions"
+              v-if="recipe.id !== null"
+              :name="recipe.name"
+              :likes="recipe.likes"
+              :image="recipe.image"
+              :level="recipe.level"
+              :category="recipe.category"
+              :total="recipe.total"
+              :portions="recipe.portions"
+              :occasion="recipe.occasion"
+              :summary="recipe.summary"
+              :ingredients="recipe.ingredients"
+              :instructions="recipe.instructions"
+            ></recipe-info>
             
-          ></recipe-info>
 
 
 

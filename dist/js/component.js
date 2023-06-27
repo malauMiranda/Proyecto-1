@@ -1,205 +1,125 @@
 const app = Vue.createApp({
   data() {
     return {
-      recipes: [],
+      allRecipes:[],
+      topRecipes: [],
       selectedIndex: 0,
       recipe: {},
       likedRecipes: [],
       searchRecipes: [],
-      apiKey:"450147b52a364ff3a4c80ee4dea6b72f",
     };
   },
 
   mounted: function () {
-    //localStorage.clear();
-    this.likedRecipes = JSON.parse(localStorage.getItem('likedRecipes'));
+
+    
+    //SHOW RECIPE CARD INFO TOP10
     axios({
       method: 'get',
-      url: 'https://api.spoonacular.com/recipes/random?apiKey=' + this.apiKey + '&number=10'
+      url: 'http://localhost/prueba01/public/api/recipes/top10'
     })
       .then((response) => {
-        let items = response.data.recipes;
-        this.recipes = [];
+        let items = response.data;
+        this.topRecipes = [];
 
         if (items.length > 0) {
           items.forEach(element => {
-            this.recipes.push({
+            this.topRecipes.push({
               id: element.id,
-              name: element.title,
-              image: element.image,
-              level: element.healthScore,
-              category: element.dishTypes[0],
-              servings: element.servings,
-              likes: element.aggregateLikes,
-              totalMinutes: element.readyInMinutes,
-              preparation: element.readyInMinutes,
+              name: element.name,
+              image:"http://localhost/prueba01/public/storage/imgs/"+element.image,
+              level: element.level,
+              category: element.category,
+              occasion: element.occasion,
+              likes: element.likes
             });
           });
         }
 
-        this.getCardDetails();
-        console.log(this.likedRecipes);
+       
+        //console.log(this.likedRecipes);
       })
       .catch(error => console.log(error));
 
+      this.getAllRecipes();
   },
+
 
   methods: {
 
-    //Show limited recipes
-    getLimitedRecipes(n) {
-      return this.recipes.slice(0, n);
-    },
-
-
                                                               //CARDS ON HOME
-    //get information for the cards
-    getCardDetails() {
-      const requests = this.recipes.map(recipe => {
-        return axios({
-          method: 'get',
-          url: 'https://api.spoonacular.com/recipes/' + recipe.id + '/information?includeNutrition=false&apiKey=' + this.apiKey + ''
-        });
-      });
 
-      Promise.all(requests)
-        .then(responses => {
-          responses.forEach((response, index) => {
-            const data = response.data;
-            this.recipes[index].level = data.healthScore;
-            this.recipes[index].servings = data.servings;
-            this.recipes[index].likes = data.aggregateLikes;
-            this.recipes[index].readyInMinutes = data.readyInMinutes;
-            this.recipes[index].preparation = data.readyInMinutes;
-          });
-
-          this.changeCategoryCard();
-          this.changeCategoryInfo();
-          this.changeLevelCard();
-          this.changeLevelInfo();
-        })
-        .catch(error => console.log(error));
-    },
-
-
-
-      // Change the name of the category in the card
-      changeCategoryCard() {
-        this.recipes.forEach(recipe => {
-          const category = recipe.category;
-  
-          if (category === 'bread' || category === 'breakfast' || category === 'morning meal') {
-            recipe.category = 'Breakfast';
-          } else if (category === 'beverage' || category === 'drink') {
-            recipe.category = 'Drinks';
-          } else if (category === 'side dish' || category === 'appetizer' || category === 'salad' || category === 'sauce' || category === 'marinade' || category === 'fingerfood' || category === 'snack' || category === 'antipasti') {
-            recipe.category = 'Appetizers';
-          } else if (category === 'main course' || category === 'lunch') {
-            recipe.category = 'Lunch';
-          } else if (category === 'dessert') {
-            recipe.category = 'Dessert';
-          } else if (category === 'soup') {
-            recipe.category = 'Soups';
-          } else {
-            recipe.category = 'Other';
-          }
-        });
-      },
-  
-       // Change the name of the category in recipe-info
-      changeCategoryInfo() {
-        const category = this.recipe.category;
-  
-        if (category === 'bread' || category === 'breakfast' || category === 'morning meal') {
-          this.recipe.category = 'Breakfast';
-        } else if (category === 'beverage' || category === 'drink') {
-          this.recipe.category = 'Drinks';
-        } else if (category === 'side dish' || category === 'appetizer' || category === 'salad' || category === 'sauce' || category === 'marinade' || category === 'fingerfood' || category === 'snack' || category === 'antipasti') {
-          this.recipe.category = 'Appetizers';
-        } else if (category === 'main course' || category === 'lunch') {
-          this.recipe.category = 'Lunch';
-        } else if (category === 'dessert') {
-          this.recipe.category = 'Dessert';
-        } else if (category === 'soup') {
-          this.recipe.category = 'Soups';
-        } else {
-          this.recipe.category = 'Other';
-        }
-      },
-  
-      
-      // Change the name of the level in the card
-      changeLevelCard() {
-        this.recipes.forEach(recipe => {
-          const level = recipe.level;
-  
-          if (level >= 0 && level <= 20) {
-            recipe.level = 'Easy';
-          } else if (level >= 21 && level <= 70) {
-            recipe.level = 'Intermediate';
-          } else if (level >= 71) {
-            recipe.level = 'Advanced';
-          } else {
-            recipe.level = 'Default level';
-          }
-        });
-      },
-  
-       // Change the name of the level in recipe-info
-      changeLevelInfo() {
-        const level = this.recipe.level;
-  
-        if (level >= 0 && level <= 20) {
-          this.recipe.level = 'Easy';
-        } else if (level >= 21 && level <= 70) {
-          this.recipe.level = 'Intermediate';
-        } else if (level >= 71) {
-          this.recipe.level = 'Advanced';
-        } else {
-          this.recipe.level = 'Default level';
-        }
-      },
-  
-
-    //open recipes information
+    //open recipes information for top10
     onClickRecipeDetails(index) {
-      const recipe = this.recipes[index];
+      const recipe = this.topRecipes[index];
       const recipeId = recipe.id;
-
+    
       axios({
         method: 'get',
-        url: 'https://api.spoonacular.com/recipes/' + recipeId + '/information?includeNutrition=false&apiKey=' + this.apiKey + ''
+        url: `http://localhost/prueba01/public/api/recipes/recipe/${recipeId}`
       })
         .then(response => {
-          let item = response.data;
+          let item = response.data[0][0];
+          let ingredients = response.data[1];
+    
           this.recipeId = index;
-          this.recipe.image = item.image;
-          this.recipe.name = item.title;
-          this.recipe.category = item.dishTypes[0];
-          this.recipe.total = item.readyInMinutes;
-          this.recipe.preparation = item.readyInMinutes;
-          this.recipe.level = item.healthScore;
-          this.recipe.likes = item.aggregateLikes;
-          this.recipe.servings = item.servings;
-          this.recipe.occasion = item.occasions[0];
-          this.recipe.summary = this.removeTags(item.summary);
-          this.recipe.instructions =this.removeTags(item.instructions);
-
+          this.recipe.image ="http://localhost/prueba01/public/storage/imgs/"+item.image;
+          this.recipe.name = item.name;
+          this.recipe.category = item.category;
+          this.recipe.total = item.total_time;
+          this.recipe.preparation = item.cooking_time;
+          this.recipe.level = item.level;
+          this.recipe.likes = item.likes;
+          this.recipe.portions = item.portions;
+          this.recipe.occasion = item.occasion;
+          this.recipe.summary = item.description;
+          this.recipe.instructions = item.preparation_instructions;
+    
           let ingredientsList = "";
-          for (let i = 0; i < item.extendedIngredients.length; i++) {
-            ingredientsList += item.extendedIngredients[i].original + "\n";
+          for (let i = 0; i < ingredients.length; i++) {
+            ingredientsList += ingredients[i].description + "\n";
           }
-          console.log(item.readyInMinutes);
-
           this.recipe.ingredients = ingredientsList;
-          this.changeCategoryInfo();
-          this.changeLevelInfo();
-          //this.removeTags();
+    
+        
+    
         })
         .catch(error => console.log(error));
     },
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//cards for allRecipes
+    getAllRecipes() {
+      axios({
+        method: 'get',
+        url: 'http://localhost/prueba01/public/api/recipes/all'
+      })
+      .then((response) => {
+        let items = response.data;
+        this.allRecipes = [];
+  
+        if (items.length > 0) {
+          items.forEach(element => {
+            this.allRecipes.push({
+              id: element.id,
+              name: element.name,
+              image: "http://localhost/prueba01/public/storage/imgs/" + element.image,
+              level: element.level,
+              category: element.category,
+              occasion: element.occasion,
+              likes: element.likes
+            });
+          });
+        }
+
+        
+      })
+      .catch(error => console.log(error));
+      
+    },
 
 
+   
 
 
 
@@ -211,180 +131,68 @@ searchRecipe() {
 
   axios({
     method: 'get',
-    url: `https://api.spoonacular.com/recipes/complexSearch?query=${searchTerm}&apiKey=${this.apiKey}`
+    url: `http://localhost/prueba01/public/api/recipes/searchbyname/${searchTerm}`
 
   })
     .then(response => {
-      let items = response.data.results;
+      let items = response.data;
       console.log(items);
 
       
       if (items.length > 0) {
         items.forEach(element => {
-          let category = '';
-          if (element.dishTypes && element.dishTypes.length > 0) {
-            category = element.dishTypes[0];
-          }
 
           this.searchRecipes.push({
             id: element.id,
-            name: element.title,
-            image: element.image,
-            level: element.healthScore,
-            category: category,
-            servings: element.servings,
-            likes: element.aggregateLikes,
-            total: element.readyInMinutes,
-            preparation: element.readyInMinutes,
+            name: element.name,
+            image: "http://localhost/prueba01/public/storage/imgs/" +element.image,
+            level: element.level,
+            category: element.category,
+            occasion: element.occasion,
+            likes: element.likes,
           });
         });
 
-        this.getSearchDetails(searchTerm);
+        
       }
     })
     .catch(error => console.log(error));
 },
 
 
-//brings the information from api
-  getSearchDetails(searchTerm) {
-    const requests = this.searchRecipes.map(recipe => {
-      return axios({
-        method: 'get',
-        url: `https://api.spoonacular.com/recipes/${recipe.id}/information?includeNutrition=false&apiKey=${this.apiKey}`
-      });
-    });
-  
-    Promise.all(requests)
-      .then(responses => {
-        responses.forEach((response, index) => {
-          const data = response.data;
-          this.searchRecipes[index].level = data.healthScore;
-          this.searchRecipes[index].category = data.dishTypes[0];
-          this.searchRecipes[index].name = data.title;
-          this.searchRecipes[index].servings = data.servings;
-          this.searchRecipes[index].likes = data.aggregateLikes;
-        });
-
-        this.changeCategoryInfoSearch();
-        this.changeLevelInfoSearch();
-        this.changeLevelCardSearch();
-        this.changeCategoryCardSearch();
-
-      })
-      .catch(error => console.log(error));
-  },
-
-
-  changeCategoryCardSearch() {
-    this.searchRecipes.forEach(recipe => {
-      const category = recipe.category;
-
-      if (category === 'bread' || category === 'breakfast' || category === 'morning meal') {
-        recipe.category = 'Breakfast';
-      } else if (category === 'beverage' || category === 'drink') {
-        recipe.category = 'Drinks';
-      } else if (category === 'side dish' || category === 'appetizer' || category === 'salad' || category === 'sauce' || category === 'marinade' || category === 'fingerfood' || category === 'snack' || category === 'antipasti') {
-        recipe.category = 'Appetizers';
-      } else if (category === 'main course' || category === 'lunch') {
-        recipe.category = 'Lunch';
-      } else if (category === 'dessert') {
-        recipe.category = 'Dessert';
-      } else if (category === 'soup') {
-        recipe.category = 'Soups';
-      } else {
-        recipe.category = 'Other';
-      }
-    });
-  },
-
-  changeCategoryInfoSearch() {
-    const category = this.recipe.category;
-
-    if (category === 'bread' || category === 'breakfast' || category === 'morning meal') {
-      this.recipe.category = 'Breakfast';
-    } else if (category === 'beverage' || category === 'drink') {
-      this.recipe.category = 'Drinks';
-    } else if (category === 'side dish' || category === 'appetizer' || category === 'salad' || category === 'sauce' || category === 'marinade' || category === 'fingerfood' || category === 'snack' || category === 'antipasti') {
-      this.recipe.category = 'Appetizers';
-    } else if (category === 'main course' || category === 'lunch') {
-      this.recipe.category = 'Lunch';
-    } else if (category === 'dessert') {
-      this.recipe.category = 'Dessert';
-    } else if (category === 'soup') {
-      this.recipe.category = 'Soups';
-    } else {
-      this.recipe.category = 'Other';
-    }
-  },
-
-  changeLevelCardSearch() {
-    this.searchRecipes.forEach(recipe => {
-      const level = recipe.level;
-
-      if (level >= 0 && level <= 20) {
-        recipe.level = 'Easy';
-      } else if (level >= 21 && level <= 70) {
-        recipe.level = 'Intermediate';
-      } else if (level >= 71) {
-        recipe.level = 'Advanced';
-      } else {
-        recipe.level = 'Default level';
-      }
-    });
-  },
-
-  changeLevelInfoSearch() {
-    const level = this.recipe.level;
-
-    if (level >= 0 && level <= 20) {
-      this.recipe.level = 'Easy';
-    } else if (level >= 21 && level <= 70) {
-      this.recipe.level = 'Intermediate';
-    } else if (level >= 71) {
-      this.recipe.level = 'Advanced';
-    } else {
-      this.recipe.level = 'Default level';
-    }
-  },
 
 
     //open recipes information for search
     onClickRecipeSearch(index) {
       const recipe = this.searchRecipes[index];
       const recipeId = recipe.id;
-
+    
       axios({
         method: 'get',
-        url: 'https://api.spoonacular.com/recipes/' + recipeId + '/information?includeNutrition=false&apiKey=' + this.apiKey + ''
+        url: 'http://localhost/prueba01/public/api/recipes/recipe/' + recipeId
       })
         .then(response => {
-          let item = response.data;
+          let item = response.data[0][0];
+          let ingredients = response.data[1];
           this.recipeId = index;
-          this.recipe.image = item.image;
-          this.recipe.name = item.title;
-          this.recipe.category = item.dishTypes[0];
-          this.recipe.total = item.readyInMinutes;
-          this.recipe.preparation = item.readyInMinutes;
-          this.recipe.level = item.healthScore;
-          this.recipe.likes = item.aggregateLikes;
-          this.recipe.servings = item.servings;
-          this.recipe.occasion = item.occasions[0];
-          this.recipe.summary = this.removeTags(item.summary);
-          this.recipe.instructions = this.removeTags(item.instructions);
-
-          let ingredientsList = "";
-          for (let i = 0; i < item.extendedIngredients.length; i++) {
-            ingredientsList += item.extendedIngredients[i].original + "\n";
-          }
-
-          this.recipe.ingredients = ingredientsList;
-
-          this.changeCategoryInfoSearch();
-          this.changeLevelInfoSearch();
+          this.recipe.image = "http://localhost/prueba01/public/storage/imgs/" + item.image;
+          this.recipe.name = item.name;
+          this.recipe.category = item.category;
+          this.recipe.total = item.total_time;
+          this.recipe.preparation = item.cooking_time;
+          this.recipe.level = item.level;
+          this.recipe.likes = item.likes;
+          this.recipe.portions = item.portions;
+          this.recipe.occasion = item.occasion;
+          this.recipe.summary = item.description;
+          this.recipe.instructions = item.preparation_instructions;
+          this.recipe.ingredients = ingredients.map(ingredient => ingredient.description).join('\n');
+    
+          // ...
         })
         .catch(error => console.log(error));
-    },
+    }
+    ,
 
 
 
@@ -418,7 +226,7 @@ onClickLike(index) {
         image: data.image,
         level: data.healthScore,
         category: category,
-        servings: data.servings,
+        portions: data.portions,
         likes: data.aggregateLikes+1,
         total: data.readyInMinutes,
         preparation: data.readyInMinutes,
@@ -448,7 +256,7 @@ onClickLike(index) {
           responses.forEach((response, index) => {
             const data = response.data;
             this.recipes[index].level = data.healthScore;
-            this.recipes[index].servings = data.servings;
+            this.recipes[index].portions = data.portions;
             this.recipes[index].likes = data.aggregateLikes +1;
             this.recipes[index].total = data.readyInMinutes;
             this.recipes[index].preparation = data.readyInMinutes;
@@ -485,7 +293,7 @@ onClickLike(index) {
         image: data.image,
         level: data.healthScore,
         category: category,
-        servings: data.servings,
+        portions: data.portions,
         likes: data.aggregateLikes+1,
         total: data.readyInMinutes,
         preparation: data.readyInMinutes,
@@ -521,7 +329,7 @@ onClickLike(index) {
           this.recipe.preparation = item.readyInMinutes;
           this.recipe.level = item.healthScore;
           this.recipe.likes = item.aggregateLikes+1;
-          this.recipe.servings = item.servings;
+          this.recipe.portions = item.portions;
           this.recipe.occasion = item.occasions[0];
           this.recipe.summary = this.removeTags(item.summary);
           this.recipe.instructions = this.removeTags(item.instructions);
@@ -556,7 +364,7 @@ onClickLike(index) {
           this.recipe.preparation = item.readyInMinutes;
           this.recipe.level = item.healthScore;
           this.recipe.likes = item.aggregateLikes+1;
-          this.recipe.servings = item.servings;
+          this.recipe.portions = item.portions;
           this.recipe.occasion = item.occasions[0];
           this.recipe.summary = this.removeTags(item.summary);
           this.recipe.instructions = this.removeTags(item.instructions);
