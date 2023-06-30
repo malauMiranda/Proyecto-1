@@ -41,7 +41,7 @@ methods: {
 
     onClickViewRecipe(){
         //console.log("VIEW");
-        this.$emit('recipedetails', this.index, this.title) ;
+        this.$emit('recipedetails', this.index) ;
 
     },
 

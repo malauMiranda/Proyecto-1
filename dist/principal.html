@@ -17,7 +17,7 @@
 <body class="d-flex flex-column min-vh-100">
  <section id="app">
 
-  <navbar user="Laura" image="images/fresa.png"></navbar>
+  <navbar user="Laura" image="images/fresa.png" v-on:logout="logout"></navbar>
 
   <!--TITULO-->
   <div class="image-bg">
@@ -102,13 +102,12 @@
           Category
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item regular-text" href="#"> All</a></li>
-          <li><a class="dropdown-item regular-text" href="#">Breakfast</a></li>
-          <li><a class="dropdown-item regular-text" href="#">Drinks</a></li>
-          <li><a class="dropdown-item regular-text" href="#">Appetizers</a></li>
-          <li><a class="dropdown-item regular-text" href="#">Lunch</a></li>
-          <li><a class="dropdown-item regular-text" href="#">Dessert</a></li>
-          <li><a class="dropdown-item regular-text" href="#">Soups</a></li>
+          <li><a class="dropdown-item regular-text" data-category="1" @click="selectCategory">Breakfast</a></li>
+          <li><a class="dropdown-item regular-text"  data-category="2" @click="selectCategory">Drinks</a></li>
+          <li><a class="dropdown-item regular-text"  data-category="3" @click="selectCategory">Appetizers</a></li>
+          <li><a class="dropdown-item regular-text"  data-category="4" @click="selectCategory">Lunch</a></li>
+          <li><a class="dropdown-item regular-text"  data-category="5" @click="selectCategory">Dessert</a></li>
+          <li><a class="dropdown-item regular-text" data-category="6" @click="selectCategory">Soups</a></li>
         </ul>
       </div>
     </section>
@@ -134,28 +133,27 @@
 
     </section>
 
-    <section class="container-fluid">
 
-      <h1 class="subtitle text-center mt-5 mb-5">Your collection of liked recipes</h1>
-
+    <section class=container-fluid>
 
       <div class="row">
-        <div v-for="(item, index) in likedRecipes" class="col card-center"> 
+        <div v-for="(item, index) in filterRecipes" class="col card-center"> 
           <recipe-card 
             :name="item.name" 
             :image="item.image" 
             :level="item.level" 
             :category="item.category" 
-            :portions="item.portions" 
+            :occasion="item.occasion" 
             :likes="item.likes"
             :index="index"
-            v-on:recipedetails="onClickLikeInfo"
+            v-on:recipedetails="onClickRecipeFilter"
             v-on:recipelike="onClickLike"
           ></recipe-card>
         </div>
       </div>
 
-      </section>
+    </section>
+
 
 
     <footer class="red-space">

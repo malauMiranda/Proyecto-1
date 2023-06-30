@@ -62,8 +62,8 @@ app.component('navbar', {
 
 
       <li class="nav-item ps-lg-3 nav-link">
-        <a class="navbar-brand nav-link text-white" href="inicio.html">
-          <span class="nav-bar text-white" href="#">Logout</span>
+        <a class="navbar-brand nav-link text-white">
+          <span class="nav-bar text-white"  v-on:click="$emit('logout')">Logout</span>
         </a>
       </li>
 

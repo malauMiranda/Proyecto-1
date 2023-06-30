@@ -18,8 +18,8 @@ app.component('recipe-info', {
         },
 
         level: {
-            type: Number,
-            default: 1
+            type: String,
+            default: "default level"
         },
 
         category: {
