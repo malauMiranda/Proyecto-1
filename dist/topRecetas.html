@@ -17,7 +17,7 @@
 <body>
     <section id="app">
 
-        <navbar user="Laura" image="images/fresa.png"></navbar>
+        <navbar user="Laura" image="images/fresa.png" v-on:logout="logout"></navbar>
 
         <section class="container-fluid mt-lg-5">
 
@@ -38,6 +38,7 @@
                   :index="index"
                   v-on:recipedetails="onClickRecipeDetails"
                   v-on:recipelike="onClickLike"
+                  v-on:recipeadd="onClickAdd"
                 ></recipe-card>
               </div>
             </div>

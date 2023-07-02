@@ -1,43 +1,27 @@
 app.component('sign-up', {
 
-    props: {
-        fullname: {
-            type: String,
-            default: ''
-        },
-        mail: {
-            type: String,
-            default: ''
-        },
-        username:{
-            type: String,
-            default: ''
-        },
-        keyword: {
-            type: String,
-            default: ''
-        }
-
-    },
 
     data() {
         return {
-            user: this.username,
-            password: this.keyword,
-            name:this.fullname,
-            email:this.mail,
-            
+            name:'',
+            last_name:'',
+            country:'',
+            email:'',
+            password:'',
         };
 
 
     },
 
     methods: {
-        login() {
-            console.log('Username:', this.username);
-            console.log('Password:', this.password);
-            console.log('Name:', this.name);
-            console.log('Password:', this.password);
+        async signup() {
+            this.$emit('signup-data', {
+                name:this.name,
+                last_name:this.last_name,
+                country:this.country,
+                email: this.email,
+                password: this.password
+              })
         }
     },
 
@@ -51,59 +35,21 @@ app.component('sign-up', {
             <!--Campos de Registro-->
             <div class="col-lg-6 align-self-center">
                 <h2 class="title-login d-flex justify-content-lg-start justify-content-center ">Sign Up</h2>
-                <form action="" method="post"
-                    class="row text d-flex justify-content-lg-start justify-content-center needs-validation" novalidate>
+               
 
                     <div class="w-75">
-                    <input class="form-control form-space input-space static-text text-lg-start text-center"
-                    type="text" id="name" v-model="name" required>
-                        <span
-                        for="name" class="noclick msg d-flex justify-content-lg-start justify-content-center login-text">Full name</span>
-                        <p class="valid-feedback">
-                        </p>
-                    </div>
-
-                    <div class="w-75">
-                    <input class="form-control form-space input-space static-text text-lg-start text-center"
-                    type="text" id="email" v-model="email" required>
-                        <span
-                        for="email" class="noclick msg d-flex justify-content-lg-start justify-content-center login-text">E-mail</span>
-                        <p class="valid-feedback">
-                        </p>
-                    </div>
-
-
-                    <div class="w-75">
-                    <input class="form-control form-space input-space static-text text-lg-start text-center"
-                    type="text" id="user" v-model="user" required>
-                        <span
-                        for="user" class="noclick msg d-flex justify-content-lg-start justify-content-center login-text">User name</span>
-                        <p class="valid-feedback">
-                        </p>
-                    </div>
-
-
-                    <div class="w-75">
-                      <input class="form-control form-space input-space static-text text-lg-start text-center"
-                             type="password" id="password" v-model="password" required>
-                        <span
-                        for="password" class="noclick msg d-flex justify-content-lg-start justify-content-center login-text">Password</span>
-                        <p class="valid-feedback">
-                        </p>
+                    <input class="form-control form-space input-space static-text text-lg-start text-center" type="text" v-model="name"  placeholder="Name"/>
+                    <input class="form-control form-space input-space static-text text-lg-start text-center" type="text" v-model="last_name"  placeholder="Lastname"/>
+                    <input class="form-control form-space input-space static-text text-lg-start text-center" type="text" v-model="country"  placeholder="Country"/>
+                    <input class="form-control form-space input-space static-text text-lg-start text-center" type="text" v-model="email"  placeholder="Email"/>
+                    <input class="form-control form-space input-space static-text text-lg-start text-center" type="password" v-model="password"  placeholder="Password"/>
                     </div>
 
                    
                     
                     <div class="d-flex justify-content-lg-start justify-content-center">
-                      <!--  <button class="btn login-btn btn-block fw-bold w-75 my-5 " name="login"
-                            type="submit">
-                            Iniciar Sesión
-                        </button>-->
-                        <a class="btn login-btn fw-bold w-75 my-5" href="inicio.html">Sign Up</a>
+                    <button  class="btn login-btn fw-bold w-75 my-5" v-on:click="signup">Sign Up</button>
                     </div>
-
-
-                </form>
             </div>
 
             <!--Imagen-->

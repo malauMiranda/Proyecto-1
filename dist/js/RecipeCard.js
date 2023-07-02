@@ -50,6 +50,12 @@ methods: {
         this.$emit('recipelike', this.index);
 
     },
+
+    onClickAddRecipe(){
+        //console.log("VIEW");
+        this.$emit('recipeadd', this.index);
+
+    },
 },
 
 
@@ -69,9 +75,10 @@ methods: {
       <img class="img-fluid line" src="images/linea.png" alt="division">
       <ul class="text-center">
       <button v-on:click="onClickViewRecipe" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn card-body-text text-center">View</button><br>
-        <button v-on:click="onClickLikeRecipe" class="btn card-body-text text-center">Add</button><br>
+        
+        <button v-on:click="onClickAddRecipe" class="btn card-body-text text-center">Add</button><br>
         <a class="card-like text-center mt-5" href="#"><img class="img-fluid" src="images/corazon.png"
-            alt="">{{likes}}</a>
+            alt="">{{likes}}</a><button v-on:click="onClickLikeRecipe" class="btn card-body-text text-center">Like</button>
       </ul>
     </div>
     </div>`

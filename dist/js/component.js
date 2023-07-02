@@ -49,7 +49,7 @@ const app = Vue.createApp({
 
   methods: {
 
-    //CARDS ON HOME
+                                                                                 //CARDS ON HOME
 
     //open recipes information for top10
     onClickRecipeDetails(index) {
@@ -89,7 +89,7 @@ const app = Vue.createApp({
         .catch(error => console.log(error));
     },
 
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                   //SEE ALL RECIPES
     //cards for allRecipes
     getAllRecipes() {
       axios({
@@ -158,7 +158,7 @@ const app = Vue.createApp({
 
 
 
-    //SEARCH ON HOME
+                                                                                 //SEARCH ON HOME
 
     //get the name from html and search the name
     searchRecipe() {
@@ -233,8 +233,8 @@ const app = Vue.createApp({
 
 
 
-    //FILTER BY CATEGORY
-
+                                                                                 //FILTER BY CATEGORY
+    //show cards depending on the category
     selectCategory(event) {
       const category = event.target.dataset.category;
       console.log('Categoría seleccionada:', category);
@@ -308,8 +308,8 @@ const app = Vue.createApp({
 
 
 
-                                                    //LOGIN
-
+                                                                                            //LOGIN
+    //Checks if the user is correct
     handleLoginData(data) {
       console.log(data.email, data.password);
 
@@ -317,58 +317,163 @@ const app = Vue.createApp({
         method: 'post',
         url: `http://localhost/prueba01/public/api/users/login?email=${data.email}&password=${data.password}`
       })
-      .then(response => {
-        //console.log(response.data.accessToken)
-        const token = response.data.accessToken; 
-        localStorage.setItem('token', token);
-        alert('¡Bienvenido');
-        window.location.href = 'principal.html';
+        .then(response => {
+          //console.log(response.data.accessToken)
+          const token = response.data.accessToken;
+          const idUser = response.data.user.id
+          localStorage.setItem('token', token);
+          localStorage.setItem('idUser', idUser)
+          alert('¡Bienvenido');
+          window.location.href = 'principal.html';
 
+        })
+        .catch(error => console.log(error));
+    },
+
+    //Logs out
+    logout() {
+      const token = localStorage.getItem('token');
+
+      axios({
+        method: 'get',
+        url: 'http://localhost/prueba01/public/api/users/logout',
+
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       })
-      .catch(error => console.log(error));
-  },
+        .then(response => {
+
+          localStorage.removeItem('token');
+          localStorage.removeItem('idUser');
+          alert('¡You logged out succesuflly!');
+          window.location.href = 'principal.html';
+
+        })
+        .catch(error => {
+
+          console.error('Error, could not log out', error);
+        });
+    },
 
 
-  logout() {
-    const token = localStorage.getItem('token');
+    //VER SI ESTÁ EL TOKEN
+    verToken() {
+      const token = localStorage.getItem('token');
+      const idUser = localStorage.getItem('idUser');
 
-    axios({
-      method: 'get',
-      url: 'http://localhost/prueba01/public/api/users/logout',
-
-      headers: {
-        Authorization: `Bearer ${token}`
+      if (token !== null) {
+        console.log('Sesion activa', token);
+        console.log('ID Usuario', idUser);
+      } else {
+        console.log('No hay sesion');
       }
-    })
-      .then(response => {
-    
-        localStorage.removeItem('token');
-        alert('¡Se ha cerrado la sesión exitosamente!');
-        window.location.href = 'principal.html';
+    },
 
+                                                                                    //SIGN UP
+    //Check information to create an user
+    handleSignupData(data) {
+      console.log(data.email, data.password, data.name, data.last_name, data.country);
+
+      axios({
+        method: 'post',
+        url: `http://localhost/prueba01/public/api/users/register?name=${data.name}&last_name=${data.last_name}&country=${data.country}&email=${data.email}&password=${data.password}`
       })
-      .catch(error => {
+        .then(response => {
+          alert('Nuevo usuario');
+          window.location.href = 'inicio.html';
+
+        })
+        .catch(error => console.log(error));
+    },
+
+
+                                                                                          //LIKE A RECIPE
+    onClickLike(index) {
+      const idUser = localStorage.getItem('idUser');
+      const arraysToCheck = [this.topRecipes, this.allRecipes, this.filterRecipes, this.searchRecipes];
+    
+      let recipeId = null;
+      let found = false;
+    
+      for (const array of arraysToCheck) {
+        const recipe = array[index];
+        if (recipe && recipe.id) {
+          recipeId = recipe.id;
+          found = true;
+          break;
+        }
+      }
+    
+      if (!idUser) {
+        alert('Log in to like a recipe');
+        return;
+      }
+    
+      if (found) {
+        axios({
+          method: 'get',
+          url: 'http://localhost/prueba01/public/api/users/likes/' + idUser + '/' + recipeId
+        })
+        .then(response => {
+          if (response.data.code === 200) {
+            alert('You liked a recipe');
+            console.log(response.data);
+          } else {
+            console.log(response.data);
+          }
+        })
+        .catch(error => console.log(error));
+      } else {
+        alert('Recipe not found');
+      }
+    },
+    
+
+                                                                           //SAVE A RECIPE
+        onClickAdd(index) {
+          const idUser = localStorage.getItem('idUser');
+          const arraysToCheck = [this.topRecipes, this.allRecipes, this.filterRecipes, this.searchRecipes];
         
-        console.error('Error al cerrar sesión:', error);
-      });
-  },
-
-     //VER SI ESTÁ EL TOKEN
-
-verToken(){
-  const token = localStorage.getItem('token');
-
-  if (token !== null) {
-    console.log('Sesion activa', token);
-  } else {
-    console.log('No hay sesion');
-  }
-},
-
-
-
-
-
+          let recipeId = null;
+          let found = false;
+        
+          for (const array of arraysToCheck) {
+            const recipe = array[index];
+            if (recipe && recipe.id) {
+              recipeId = recipe.id;
+              found = true;
+              break;
+            }
+          }
+        
+          if (!idUser) {
+            alert('Log in to save a recipe');
+            return;
+          }
+        
+          if (found) {
+            axios({
+              method: 'get',
+              url: 'http://localhost/prueba01/public/api/users/saverecipe/' + idUser + '/' + recipeId
+            })
+            .then(response => {
+              if (response.data.code === 200) {
+                alert('You saved a recipe');
+                console.log(response.data);
+              } else {
+                console.log(response.data);
+              }
+            })
+            .catch(error => console.log(error));
+          } else {
+            alert('Recipe not found');
+          }
+        },
+    
+    
+    
+    
   },
 
 
