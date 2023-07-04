@@ -1,20 +1,21 @@
 app.component('profile-card', {
 
     props: {
-        user:{
+        name:{
             type: String,
             default: "default user"
         },
 
-        image:{
-            type: String
-        },
 
-        name:{
+        lastname:{
             type: String,
             default: "default name"
         },
 
+        country:{
+          type: String,
+          default: "default country"
+      },
         email:{
             type: String,
             default: "default email"
@@ -40,18 +41,19 @@ app.component('profile-card', {
 
               <div class="col">
                 
-                <img v-bind:src="image" class="img-user text-center round-img m-3" alt="user">
+                <img src="images/fresa.png" class="img-user text-center round-img m-3" alt="user">
 
               </div>
 
 
               <div class="col">
                 <div class="mt-lg-5">
-                  <h1 class="text-user">User: {{user}}</h1>
                   <h1 class="text-user">Name: {{name}}</h1>
+                  <h1 class="text-user">Lastname: {{lastname}}</h1>
+                  <h1 class="text-user">Country: {{country}}</h1>
                   <h1 class="text-user">E-mail: {{email}}</h1>
 
-                  <a href="editarPerfil.html" class="btn white-user-btn ms-3 mt-5">Edit</a>
+                  
                 </div>
 
               </div>

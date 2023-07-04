@@ -17,7 +17,7 @@
 <body class="d-flex flex-column min-vh-100">
  <section id="app">
 
-  <navbar user="Laura" image="images/fresa.png" v-on:logout="logout"></navbar>
+  <navbar :username="username" v-on:logout="logout"></navbar>
 
   <!--TITULO-->
   <div class="image-bg">

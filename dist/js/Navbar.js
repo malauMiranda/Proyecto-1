@@ -1,20 +1,15 @@
 app.component('navbar', {
 
     props: {
-        user:{
+        username:{
             type: String,
             default: "default user"
         },
 
-        image:{
-            type: String
-        },
+
 
 
     },
-
-
-
 
 
     template:
@@ -56,7 +51,7 @@ app.component('navbar', {
 
       <li class="nav-item nav-link">
         <a class="navbar-brand nav-link text-white" href="perfil.html">
-          <img v-bind:src="image" alt="img" class="d-inline-block ms-3 round-img">{{user}}
+          <img src="images/fresa.png" alt="img" class="d-inline-block ms-3 round-img">{{username}}
         </a>
       </li>
 

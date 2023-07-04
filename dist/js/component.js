@@ -8,6 +8,11 @@ const app = Vue.createApp({
       recipe: {},
       likedRecipes: [],
       searchRecipes: [],
+      savedRecipes:[],
+      username:'',
+      userEmail:'',
+      userCountry:'',
+      userLastname:'',
     };
   },
 
@@ -43,7 +48,13 @@ const app = Vue.createApp({
       .catch(error => console.log(error));
 
     this.getAllRecipes();
+    this.getSavedRecipes();
     this.verToken();
+    this.username = localStorage.getItem('nameUser');
+    this.userLastname = localStorage.getItem('lastnameUser');
+    this.userEmail = localStorage.getItem('emailUser');
+    this.userCountry = localStorage.getItem('countryUser');
+    
   },
 
 
@@ -318,16 +329,28 @@ const app = Vue.createApp({
         url: `http://localhost/prueba01/public/api/users/login?email=${data.email}&password=${data.password}`
       })
         .then(response => {
-          //console.log(response.data.accessToken)
+          //console.log(response.data.user.email)
           const token = response.data.accessToken;
           const idUser = response.data.user.id
+         // const emailUser =response.data.user.email
+          const nameUser = response.data.user.name
+          const lastnameUser = response.data.user.last_name
+          const countryUser = response.data.user.country
           localStorage.setItem('token', token);
           localStorage.setItem('idUser', idUser)
-          alert('¡Bienvenido');
+          localStorage.setItem('emailUser',response.data.user.email)
+          localStorage.setItem('nameUser', nameUser)
+          localStorage.setItem('lastnameUser', lastnameUser)
+          localStorage.setItem('countryUser', countryUser)
+        
+
+          alert('¡Welcome!');
           window.location.href = 'principal.html';
 
         })
+        
         .catch(error => console.log(error));
+        alert('Your email or password is incorrect');
     },
 
     //Logs out
@@ -346,6 +369,10 @@ const app = Vue.createApp({
 
           localStorage.removeItem('token');
           localStorage.removeItem('idUser');
+          localStorage.removeItem('emailUser');
+          localStorage.removeItem('nameUser');
+          localStorage.removeItem('lastnameUser');
+          localStorage.removeItem('countryUser');
           alert('¡You logged out succesuflly!');
           window.location.href = 'principal.html';
 
@@ -361,10 +388,18 @@ const app = Vue.createApp({
     verToken() {
       const token = localStorage.getItem('token');
       const idUser = localStorage.getItem('idUser');
+      const emailUser = localStorage.getItem('emailUser');
+      const nameUser = localStorage.getItem('nameUser');
+      const lastnameUser = localStorage.getItem('lastnameUser');
+      const countryUser = localStorage.getItem('countryUser');
 
       if (token !== null) {
         console.log('Sesion activa', token);
         console.log('ID Usuario', idUser);
+        console.log('Usuario:',nameUser);
+        console.log('Email:',emailUser);
+        console.log('Apellido:',lastnameUser);
+        console.log('Pais:',countryUser);
       } else {
         console.log('No hay sesion');
       }
@@ -387,11 +422,33 @@ const app = Vue.createApp({
         .catch(error => console.log(error));
     },
 
+                                                                                    //RECOVER PASSWORD
+
+     //Checks if the user is correct
+     handleRecoveryData(data) {
+      console.log(data.email);
+
+      axios({
+        method: 'post',
+        url: `http://localhost/prueba01/public/api/users/recoverpassword?email=${data.email}`
+      })
+        .then(response => {
+          console.log(response.data)
+         
+
+          alert('Your new password is: '+response.data.password);
+          window.location.href = 'inicio.html';
+
+        })
+        .catch(error => console.log(error));
+    },
+
+
 
                                                                                           //LIKE A RECIPE
     onClickLike(index) {
       const idUser = localStorage.getItem('idUser');
-      const arraysToCheck = [this.topRecipes, this.allRecipes, this.filterRecipes, this.searchRecipes];
+      const arraysToCheck = [this.topRecipes, this.allRecipes, this.filterRecipes, this.searchRecipes, this.savedRecipes];
     
       let recipeId = null;
       let found = false;
@@ -472,6 +529,72 @@ const app = Vue.createApp({
         },
     
     
+
+            //cards for savedRecipes
+    getSavedRecipes() {
+      const idUser = localStorage.getItem('idUser');
+      axios({
+        method: 'get',
+        url: 'http://localhost/prueba01/public/api/users/savedrecipes/'+idUser
+      })
+        .then((response) => {
+          let items = response.data;
+
+
+          if (items.length > 0) {
+            items.forEach(element => {
+              this.savedRecipes.push({
+                id: element.id,
+                name: element.name,
+                image: "http://localhost/prueba01/public/storage/imgs/" + element.image,
+                level: element.level,
+                category: element.category,
+                occasion: element.occasion,
+                likes: element.likes
+              });
+            });
+          }
+
+
+        })
+        .catch(error => console.log(error));
+
+    },
+
+
+        //open recipes information for savedRecipes
+        onClickRecipeDetailsSaved(index) {
+          const recipe = this.savedRecipes[index];
+          const recipeId = recipe.id;
+    
+          axios({
+            method: 'get',
+            url: 'http://localhost/prueba01/public/api/recipes/recipe/' + recipeId,
+    
+          })
+            .then(response => {
+              let item = response.data[0][0];
+              let ingredients = response.data[1];
+              this.recipeId = index;
+              this.recipe.image = "http://localhost/prueba01/public/storage/imgs/" + item.image;
+              this.recipe.name = item.name;
+              this.recipe.category = item.category;
+              this.recipe.total = item.total_time;
+              this.recipe.preparation = item.cooking_time;
+              this.recipe.level = item.level;
+              this.recipe.likes = item.likes;
+              this.recipe.portions = item.portions;
+              this.recipe.occasion = item.occasion;
+              this.recipe.summary = item.description;
+              this.recipe.instructions = item.preparation_instructions;
+              this.recipe.ingredients = ingredients.map(ingredient => ingredient.description).join('\n');
+    
+    
+    
+    
+            })
+            .catch(error => console.log(error));
+        },
     
     
   },

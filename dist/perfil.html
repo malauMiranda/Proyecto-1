@@ -16,33 +16,36 @@
 
 <body class="d-flex flex-column min-vh-100">
   <section id="app">
-    <navbar user="Laura" image="images/fresa.png" v-on:logout="logout"></navbar>
+    <navbar :username="username" v-on:logout="logout"></navbar>
 
     <section class="container-fluid mt-lg-5 pt-lg-5">
       <h1 class="sub-titles text-center mb-5">My profile</h1>
 
-      <profile-card user="Laura" image="images/fresa.png" name="Laura Miranda" email="lau@gmail.com"></profile-card>
+      <profile-card :name="username" :lastname="userLastname" :country="userCountry" :email="userEmail"></profile-card>
 
     </section>
 
     <section class="container-fluid mt-lg-5">
-      <h1 class="sub-titles text-center mt-5 mb-5">My liked recipes</h1>
+      <h1 class="sub-titles text-center mt-5 mb-5">My saved recipes</h1>
 
-      <div id="likedRecipes" class="row">
-        <div v-for="(item, index) in likedRecipes" class="col card-center">
+      <div class="row">
+        <div v-for="(item, index) in savedRecipes" class="col card-center"> 
           <recipe-card 
             :name="item.name" 
             :image="item.image" 
             :level="item.level" 
             :category="item.category" 
-            :portions="item.portions" 
+            :occasion="item.occasion" 
             :likes="item.likes"
-            :index="item.id"
-            v-on:recipedetails="onClickLikeInfoProfile"
+            :index="index"
+            v-on:recipedetails="onClickRecipeDetailsSaved"
             v-on:recipelike="onClickLike"
+            v-on:recipeadd="onClickAdd"
           ></recipe-card>
         </div>
       </div>
+
+      
 
       <recipe-info
         v-if="recipe.id !== null"
